@@ -1,0 +1,136 @@
+
+Microtik
+/interface bridge
+add name=bridge1
+/interface vlan
+add interface=ether1 name=GER-315 vlan-id=315
+add interface=ether1 name=vlan355 vlan-id=355
+/ip pool
+add name=pool1 ranges=192.168.0.10-192.168.0.255
+/ip dhcp-server
+add address-pool=pool1 disabled=no interface=bridge1 name=server1
+/queue simple
+add max-limit=10M/10M name="CONTROLE DE BANDA" target=192.168.0.0/24
+/snmp community
+add addresses=0.0.0.0/0 name=s1m_isp
+/interface bridge port
+add bridge=bridge1 interface=ether2
+add bridge=bridge1 interface=ether3
+add bridge=bridge1 interface=ether4
+/ip address
+add address=192.168.0.1/24 interface=bridge1 network=192.168.0.0
+add address=187.33.236.222/30 interface=vlan355 network=187.33.236.220
+add address=10.132.129.170/30 interface=GER-315 network=10.132.129.168
+/ip dhcp-server network
+add address=192.168.0.0/24 dns-server=187.33.237.148,187.33.237.58,8.8.8.8,8.8.4.4 gateway=\
+    192.168.0.1 netmask=24
+/ip firewall nat
+add action=masquerade chain=srcnat out-interface=vlan355 src-address=\
+    192.168.0.0/24
+/ip route
+add gateway=187.33.236.221 routing-mark=VRF-CLIENTE
+add gateway=10.132.129.169
+/ip route vrf
+add interfaces=bridge1,vlan355 route-distinguisher=10:10 routing-mark=\
+    VRF-CLIENTE
+/snmp
+set enabled=yes trap-community=s1m_isp trap-version=2
+/system identity
+set name=ANALISIS-GROTAO
+
+
+/password
+linpus-20500
+
+
+
+
+
+TUTORIAL:
+
+INTERFACE -> GUIA VLAN(CRIAR INT E GER);
+BRIDGE(CRIAR BRIDGE -> GUIA PORTS(ASSOCIAR PORTAS A BRIDGE[2,3,4,5]); 
+IP-> OPÇÃO ADDRESS :
+	o ip de internet e gerência, será 2 à mais, quando for um /30.
+e associa a vlan respectiva
+não esquecer de colocar o /30 após o ip.
+cria também o bloco, o ip será o gateway, será 1 à mais.
+O BLOCO ASSOCIA A BRIDGE
+
+      4.  IP->ROUTES:
+routes
+vrf
+coloca o nome: VRF-CLIENTE
+e em routes dest...: 10:10
+associa a interface internet e a bridge
+depois vai em routes
+cria e altera o gateway
+no de gerência coloca só o gateway do ip de gerência, 1 ip à mais.
+no de internet a mesma coisa e associa o router mark à vrf cliente.
+
+	
+
+
+Em Prosa:
+
+
+interfaces
+
+vlan
+cria vlans de internet e gerencia
+muda o nome e a vlan-id
+
+bridge
+
+adiciona bridge
+
+ports
+associa as portas 2,3,4,5 à bridge
+
+
+ip>address
+
+cria
+
+o ip de internet e gerencia, será 2 à mais, quando for um /30.
+e assossia a vlan respectiva
+não esquecer de colocar o /30 após o ip.
+cria também o bloco, o ip será o gatway, será 1 à mais.
+O BLOCO ASSOCIA A BRIDGE
+
+obs, dois blocos, cliente não  terá rota estática, criar dhcp servert.
+
+ip
+routes
+vrf
+coloca o nome: VRF-CLIENTE
+e em routes dest...: 10:10
+assossia a interface internet e a bridge
+
+depois vai em routes
+cria e altera o gatway
+no de gerencia coloca so o gatway do ip de gerencia, 1 ip à mais.
+no de internet a mesma coisa e assossia o router mark à vrf cliente.
+
+
+ip
+
+snmp>comunit
+cria novo com o nome: s1m_isp
+fecha
+vai novamente em snmp
+marca enable
+muda o trap_comunit para o s1m_isp
+muda trap versio para 2
+
+
+system
+identify
+alterar o nome
+
+password
+alterar senha para: linpus-20500
+
+
+
+

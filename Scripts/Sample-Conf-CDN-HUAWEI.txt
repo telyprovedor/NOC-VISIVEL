@@ -1,0 +1,22 @@
+
+We are writing this message on behalf of Warner Bros. Entertainment Inc.Liberar CDN 
+
+Huawei :
+System-view
+current
+Int xg 0/0/[numero]
+
+Undo qos Lr out...
+
+Undo qos Lr in...
+----
+MODIFICAR BANDA
+Verificar a porta *
+interface xgigabitethernet0/0/*
+[C-10153-JPA-001-XGigabitEthernet0/0/1]qos lr outbound cir 1166000 cbs 307200
+[C-10153-JPA-001-XGigabitEthernet0/0/1]qos lr inbound cir 1166000 cbs 307200
+----
+Verificar portas*
+Display interfaces brief
+Verificar comandos*
+Display current-configuration

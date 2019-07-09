@@ -1,0 +1,14 @@
+-------------------------------------VPLS 9k-----------------------------------------------------------
+l2vpn
+ bridge group LAC-RCE-GUS-PIERNET
+  bridge-domain 3436
+   mtu 1500
+   interface TenGigE0/0/2/3.3436
+   !
+   neighbor 187.33.237.5 pw-id 3436
+    pw-class FAT-PW
+interface TenGigE0/0/2/3.3436 l2transport
+ description LAC-RCE-GUS-PIERNET
+ encapsulation dot1q 3436
+ mtu 1500
+

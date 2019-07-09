@@ -1,0 +1,22 @@
+ 
+RESTRICAO DE LOGIN POR PRIVILEGE CISC0
+--------------------------------------
+
+
+username sitecnet secret 5 $1$..fZ$WQjafxpd2jHVvyIhtOtNc0
+username mpu.pb privilege 5 secret 5 $1$eLqF$2v9XMToZvlEpnIjrit4jz1
+
+
+# Criação do usuário com nivel de privilegio (PRIVILEGE) 5
+username mpu privilege 5 secret 0 Y27route
+
+# Add as permissões de configuração e comandos em modo exec
+# Será mostrado no show run, as configurações e subconfigurações a qual foi designado no "privilege configure", que são os itens ao qual aquele nivel tem permissão de configuração. Isso NÃO especifíca que ele conseguirá configurar. O CONFIGURE TERMINAL é desablitiado no "PRIVILEGE 5"
+
+privilege configure level 5 ip route
+privilege configure all level 5 router
+privilege configure all level 5 interface
+privilege configure all level 5 ip
+privilege exec level 5 show startup-config
+privilege exec level 5 show running-config
+privilege exec level 5 show

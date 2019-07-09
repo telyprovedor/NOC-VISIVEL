@@ -1,0 +1,5 @@
+EAPS - EXTREME
+
+configure eaps "PROT-JPA-CGE-CRU-RCE" (NOME da PROTEÇÃO EAPS UTILIZADA) add protected vlan <NOME DA VLAN>
+
+sh eaps "PROT-JPA-CGE-CRU-RCE" # mostra as vlans protegidas pelo eap

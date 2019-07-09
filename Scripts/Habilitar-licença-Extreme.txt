@@ -1,0 +1,4 @@
+HABILITAR LICENÇA - EXTREME 
+
+debug epm enable trial-license
+

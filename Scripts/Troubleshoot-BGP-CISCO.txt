@@ -1,0 +1,53 @@
+T-SHOT BGP
+
+Pingar para o IP remoto;
+Verificar se a sessão está Estabelecida;
+show bgp summary | match 262740 #juniper
+show bgp summary | include 262740 #ASR
+
+Verificar as configurações aplicadas;
+Verificar o Prefix-set; #ASR
+show running-config prefix-set PS-VELOONET
+
+Verificar se o conteúdo do Policy-Statement / Route-Policy está aplicado no prefixo;
+#apenas para ler o conteúdo das polices:
+show route-policy eBGP-DOWNSTREAM-ASN-262740-IN
+show rpl route-policy eBGP-DOWNSTREAM-ASN-53055-IN
+show policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN
+
+# Listar Peer
+show running-config router bgp 53087 neighbor 187.33.254.102
+
+#verificar se foi aplicado
+show route 170.244.180.0/22 detail #JUNIPER
+show bgp 179.97.32.0/20 detail #ASR
+# prefixo do cliente, para ver se as communities, local preference, as-path e etc estão sendo aplicados.
+Caso não, verificar se a policy está policy/route-policy está aplicada no grupo BGP/neighbor.
+
+Verificar se estamos recebendo / enviando as rotas;
+#Juniper
+show route receive-protocol bgp 187.33.231.6  #ip do neighbor/cliente
+show route advertising-protocol bgp 64.209.38.37 #ip da operadora ou RR, pode inserir “| include <IP>” prefixo do cliente que queremos saber
+
+#Asr
+show bgp neighbor 187.33.231.6 received routes #ip do neighbor/cliente
+show bgp neighbor 64.209.38.37 advertised-routes #ip da operadora ou RR, pode inserir “| include <IP>” prefixo do cliente que queremos saber
+
+Verificar no Looking Glass (preferência o Sakura) qual o as-path do cliente;
+
+COMANDOS NECESSÃRIOS ASR
+#ENCONTRAR O CLIENTE
+show ipv4 interface brief | include [VLAN]
+# LISTAR ROUTER-POLICY
+show rpl route-policy eBGP-DOWNSTREAM-ASN-53055-IN
+# LISTAR PREFIX-SET
+show running-config prefix-set PS-HOSTDIME
+# LISTAR PEER
+show running-config router bgp 53087 neighbor 187.33.254.102
+# LISTAR ROUTES RECEBIDAS
+show bgp neighbors 187.33.249.246 routes
+# LISTAR ROUTES ENVIADAS
+show bgp advertised neighbor 187.33.249.246 summary
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjMzODE0MTFdfQ==
+-->

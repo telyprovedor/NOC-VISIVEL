@@ -1,0 +1,33 @@
+﻿187.33.227.196
+
+################################################################
+
+#show subscribers
+para ver os usuários conectados
+
+#show interface <interface do user> detail
+vai dizer qual controle de banda pegou
+
+#clear pppoe sessions <interface do user>
+para derrubar um user
+
+#show subscribers summary
+fornece o numero de conexões ativas
+
+#show subscribers user-name <usuário PPPOE>
+informa detalhes sobre a conexão deste usuário PPPOE
+
+#monitor interfaces <usuário PPPOE>
+mostra em tempo real em bps o que está passando na interface
+
+#show log ppp-auth.log | match <autenticação PPPOE>
+mostra logs de autenticação do usuário "x"
+
+#run show pppoe interface <interface do user>
+mostra informações da autenticação do cliente.
+
+#show subscribers vlan-id <id da vlan> subscriber-state active
+"advinha" quais autenticações estão nesta vlan
+
+#show subscribers vlan-id <id-vlan> subscriber-state active
+verifica os clientes que estão em uma vlan especifica

@@ -1,0 +1,42 @@
+ONFIGURAÇÃO BGP - JUNIPER
+
+Ip na interface:
+set interfaces ae1 unit 835 description DIPD-MME-010430
+set interfaces ae1 unit 835 vlan-id 835
+set interfaces ae1 unit 835 family inet address 187.33.231.5/30
+set interfaces ae1 unit 835 family inet6 address 2804:298:2200::45/126
+
+Policy-statement:
+
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM from as-path-group ASPATH-DOWNSTREAM-ASN-266506
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM from route-filter 170.244.180.0/22 prefix-length-range /22-/24
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM then local-preference 300
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM then community set CLIENTES-JPA
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM then community add 5X-PREPEND-LEVEL3-CGE
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM then community add 5X-PREPEND-GVT-CRU
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM then accept
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM-IPV6 from as-path-group ASPATH-DOWNSTREAM-ASN-266506
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM-IPV6 from route-filter 2804:38dc::/32 prefix-length-range /32-/48
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM-IPV6 then community add 3X-PREPEND-LEVEL3-CGE
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM-IPV6 then community add 5X-PREPEND-GVT-CRU
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN term AS266506-PONTOCOM-IPV6 then accept
+set policy-options policy-statement eBGP-DOWNSTREAM-ASN-266506-JPA-IN then reject
+
+As-path-group:
+set policy-options as-path-group ASPATH-DOWNSTREAM-ASN-266506 as-path ASN266506 "^(266506 ?)+$"
+
+
+Bgp Group / Neighbor:
+set protocols bgp group eBGP-DOWNSTREAM-ASN-266506-JPA type external
+
+set protocols bgp group eBGP-DOWNSTREAM-ASN-266506-JPA description PONTOCOM-SOLANGE
+
+set protocols bgp group eBGP-DOWNSTREAM-ASN-266506-JPA import eBGP-DOWNSTREAM-ASN-266506-JPA-IN
+
+set protocols bgp group eBGP-DOWNSTREAM-ASN-266506-JPA export FULL-ROUTING-E-DEFAULT
+
+set protocols bgp group eBGP-DOWNSTREAM-ASN-266506-JPA peer-as 266506
+
+set protocols bgp group eBGP-DOWNSTREAM-ASN-266506-JPA neighbor 187.33.231.6
+
+set protocols bgp group eBGP-DOWNSTREAM-ASN-266506-JPA neighbor 2804:298:2200::46

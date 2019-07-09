@@ -1,0 +1,58 @@
+CONFIGURAÇÃO BGP - HUAWEI
+
+
+vlan [id]
+
+bgp 53087
+ peer [IP-NEIGHBOR] as-number [AS-REMOTO]
+ peer [IP-NEIGHBOR] description [NOME]
+ ipv4-family unicast
+  peer [IP-NEIGHBOR] enable
+  peer [IP-NEIGHBOR] route-policy [RP-IN] import
+  peer [IP-NEIGHBOR] route-policy [RP-OUT] export
+  peer [IP-NEIGHBOR] next-hop-local
+  peer [IP-NEIGHBOR] advertise-community
+
+interface Vlanif [ID-VLAN]
+ description Cust: [NOME-CLIENTE]
+ ip address [IP] [MASK]
+
+interface Eth-Trunk3
+ port trunk allow-pass vlan [ID-VLAN]
+
+
+# OBS.: SEMPRE INCREMENTAR O INDEX DE 10 EM 10 PARA CADA NOVO PREFIXO COLADO
+# SÓ UTILIZAR UM NOME-DO-IP-PREFIX PARA NOSSO CLIENTE E CLIENTES DELE.
+
+ip ip-prefix [NOME-DO-IP-PREFIX] index [X] permit [BLOCO IP] [PREFIXO] greater-equal [PREFIXO] less-equal 24
+
+# ip ip-prefix [NOME-DO-IP-PREFIX] index [X+10] permit [BLOCO IP] [PREFIXO] greater-equal [PREFIXO] less-equal 24
+# ip ip-prefix [NOME-DO-IP-PREFIX] index [10X+10] permit [BLOCO IP] [PREFIXO] greater-equal [PREFIXO] less-equal 24
+
+route-policy [RP-IN] permit node 25
+ if-match ip-prefix [NOME-DO-IP-PREFIX]
+ apply local-preference 800
+ apply community 53087:243
+
+route-policy [RP-IN] deny node 1000
+
+route-policy [RP-OUT] permit node 25
+ if-match ip-prefix CDN
+ apply community none
+
+route-policy [RP-OUT] deny node 1000
+
+
+# T-SHOOT HUAWEI #
+
+dis cur # mostra todas as configurações
+dis ip routing-table [IP] # para ver a vlan
+dis cur int vlanif[ID] # mostra as config de vlan
+
+dis bgp peer # lista todos os peers
+dis bgp peer | i [IP peer] # lista o peer específico 
+dis route-policy [NOME-IN]
+dis route-policy [NOME-OUT]
+dis ip ip-prefix [NOME-DO-IP-PREFIX]
+dis bgp routing-table peer [NEIGHBOR] received-routes # rotas recebidas pelo peer
+dis bgp routing-table peer [NEIGHBOR] advertised-routes # rotas anunciadas ao peer

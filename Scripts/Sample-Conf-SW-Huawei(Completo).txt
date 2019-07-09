@@ -1,0 +1,68 @@
+CONFIGURAÇÕES HUAWEI
+
+[C-5413-MURE-01]display current-configuration
+!Software Version V200R008C00SPC500
+#
+sysname C-5413-MURE-01
+#
+vlan batch 1733 to 1734
+#
+telnet server enable
+#
+clock timezone UTC add 00:00:00
+#
+vlan 1733
+ name gerencia
+vlan 1734
+ name INT-DIPD-TBR-000854
+#
+aaa
+ authentication-scheme default
+ authorization-scheme default
+ accounting-scheme default
+ domain default
+ domain default_admin
+ local-user admin password irreversible-cipher %^%#za;uW<K#p7+}@;LB6uESk/;h"fk6"#QgZ-Wj5!,L"cS{GVP%/:M3"!%Mrz4I%^%#
+ local-user admin service-type http
+ local-user sitecnet password irreversible-cipher %^%#7Ug3<rMq:8QIKg2/}P!Hg9|v#Z3l1W~'x*@!EV)5f4{mGtVf4@2OpRIDn4XO%^%#
+ local-user sitecnet privilege level 15
+ local-user sitecnet service-type telnet
+#
+interface Vlanif1
+#
+interface Vlanif1733
+ description GER-DIPD-TBR-000854
+ ip address 10.136.34.2 255.255.255.252
+#
+interface GigabitEthernet0/0/1
+ port link-type access
+ port default vlan 1734
+#
+interface GigabitEthernet0/0/2
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+
+interface XGigabitEthernet0/0/1
+ port link-type trunk
+ port trunk allow-pass vlan 1733 to 1734
+#
+ip route-static 0.0.0.0 0.0.0.0 10.136.34.1
+#
+user-interface con 0
+ authentication-mode aaa
+user-interface vty 0 4
+ authentication-mode aaa
+ user privilege level 15
+ protocol inbound telnet
+user-interface vty 16 20
+#
+return
+
+SNMP HUAWEI:
+
+snmp-agent community read cipher s1m_isp2
+snmp-agent sys-info version v2c v3
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTU2MjI0ODYwMl19
+-->

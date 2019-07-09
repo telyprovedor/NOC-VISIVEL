@@ -1,0 +1,45 @@
+delete interfaces ethernet eth0 address
+set interfaces ethernet eth0 duplex auto
+set interfaces ethernet eth0 speed auto
+set interfaces ethernet eth1 duplex auto
+set interfaces ethernet eth1 speed auto
+set interfaces ethernet eth1 vif 653 address 10.1.0.202/30 #Nessa linha mudar o ip e vlan de ponto a ponto
+set interfaces ethernet eth2 address 192.168.1.1/24
+set interfaces ethernet eth2 duplex auto
+set interfaces ethernet eth2 speed auto
+set protocols bgp 65850 neighbor 10.1.0.197 remote-as 65800 #Nessa linha mudar o ip do neighbor e o AS local
+set protocols bgp 65850 parameters router-id 192.168.1.1 #Nessa linha mudar o AS local.
+set service dhcp-server disabled false
+set service dhcp-server hostfile-update disable
+set service dhcp-server shared-network-name DHCP-CODATA authoritative disable
+set service dhcp-server shared-network-name DHCP-CODATA subnet 192.168.1.0/24 default-router 192.168.1.1
+set service dhcp-server shared-network-name DHCP-CODATA subnet 192.168.1.0/24 dns-server 8.8.8.8
+set service dhcp-server shared-network-name DHCP-CODATA subnet 192.168.1.0/24 lease 86400
+set service dhcp-server shared-network-name DHCP-CODATA subnet 192.168.1.0/24 start 192.168.1.10 stop 192.168.1.200
+set service gui https-port 443
+set service nat rule 5000 description MASQUERADE
+set service nat rule 5000 log disable
+set service nat rule 5000 outbound-interface eth1.653 #Nessa linha mudar a vlan
+set service nat rule 5000 protocol all
+set service nat rule 5000 source address 192.168.1.0/24
+set service nat rule 5000 type masquerade
+set service snmp community sim_isp authorization ro
+set service telnet port 23
+set system host-name TESTE-CODATA #Nessa linha mudar o HOSTNAME
+set system login user sitecnet authentication plaintext-password 335-pbsitec
+set system login user sitecnet level admin
+set system login user codata authentication plaintext-password C0d@ta-pB
+set traffic-control smart-queue CONTROLE download burst 1500b
+set traffic-control smart-queue CONTROLE download ecn enable
+set traffic-control smart-queue CONTROLE download flows 1024
+set traffic-control smart-queue CONTROLE download fq-quantum 1514
+set traffic-control smart-queue CONTROLE download limit 10240
+set traffic-control smart-queue CONTROLE download rate 31mbit
+set traffic-control smart-queue CONTROLE upload burst 1500b
+set traffic-control smart-queue CONTROLE upload ecn enable
+set traffic-control smart-queue CONTROLE upload flows 1024
+set traffic-control smart-queue CONTROLE upload fq-quantum 1514
+set traffic-control smart-queue CONTROLE upload limit 10240
+set traffic-control smart-queue CONTROLE upload rate 31mbit
+set traffic-control smart-queue CONTROLE wan-interface eth2
+

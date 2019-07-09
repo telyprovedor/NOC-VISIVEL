@@ -1,0 +1,38 @@
+RAISECOM
+
+
+user name sitecnet password @cc355#s1t3c
+user name sitecnet privilege 15
+
+hostname C-NET.COM
+
+ config
+
+ vlan 1228
+  name GER-DIPB-BEZ-000192
+  state active
+  exit
+
+ vlan 1229
+  name INT-DIPB-BEZ-000192
+  state active
+  exit
+
+ interface ip 1
+  ip address 10.152.194.2 255.255.255.252 1228
+  exit
+
+ interface nni 1
+  switchport trunk allowed vlan 1228-1229
+  switchport mode trunk
+  description UPLINK
+  exit
+
+ interface uni 4
+  switchport access vlan 1229
+  description DOWNLINK
+
+
+ip route 0.0.0.0/0 10.152.194.1
+
+

@@ -1,0 +1,179 @@
+ ##CONFIGURAÇÕES DA OLT HUAWEI##
+    
+                                                                                @@@@INICIO@@@@
+
+============================================================================================================
+
+1. OLT-HUAWEI>idle-timeout x (aumenta o timeout em minutos)
+2. Atualmente a OLT possui um chassi, um cartão e duas portas configuradas onde as ONUs podem subir.
+3. Na ONU, a porta 1 é reservada para dados (vlan 2589) e a porta 2 para voip (vlan 10), ou qualquer outro serviço que se queira.
+4. A autorização da ONU é feita baseada na "Ont SN" - serial number OU PON se for WIFI
+5. O ONTID é o id da ont POR CARTÃO(SEMPRE ANOTAR QUANDO FOR CONFIGURAR). O service-port é global, lista o index das SERVICE PORTS(TAMBÉM ANOTAR).
+6. ##PROFILES:
+7. 10 para ont sem wifi, 11 para ont com wifi , 14 para ont da quadra e piscina e 15 para as câmeras das “ruas” do bosque.
+8.Procure dar um display current configuration na olt para saber quais gem ports e quais vlans existem nos serviços e perfis.
+
+============================================================================================================
+
+#CREDENCIAIS OLT:
+Telnet 10.4.34.46
+Usuário: sitecnet
+Senha: 335-pbsitec
+#CREDENCIAIS ROTEADORES BOSQUE: 
+IP Gerência das ONT’s: 192.168.18.1/192.168.100.1
+         esta    OU      esta
+Usuário: Epadmin |Usuário: telecomadmin
+Pass: adminEp    |Pass: admintelecom
+Lista de possiveis ips de gerencia de user/password:
+https://portforward.com/router-password/huawei.htm
+============================================================================================================
+
+OLT-HUAWEI> idle-timeout 10
+OLT-HUAWEI> enable
+OLT-HUAWEI# config
+
+============================================================================================================
+
+##LISTAR AS ONUs JÁ AUTORIZADAS E ASSOCIADAS AO INDEX (service-port).PARA AS NOVAS, SEGUIR A SEQUENCIA.
+
+OLT-HUAWEI(config)# display service-port all 
+
+#O seguinte cabeçalho será exibido:
+
+  Command:
+          display service-port all 
+  Switch-Oriented Flow List
+  -----------------------------------------------------------------------------
+   INDEX VLAN VLAN     PORT F/ S/ P VPI  VCI   FLOW  FLOW       RX   TX   STATE
+         ID   ATTR     TYPE                    TYPE  PARA
+  -----------------------------------------------------------------------------
+       0 2589 common   gpon 0/0 /0  0    0     vlan  untag      -    -    up   
+       1   10 common   gpon 0/0 /0  0    1     vlan  untag      -    -    up   
+       2 2589 common   gpon 0/0 /0  1    0     vlan  untag      -    -    up   
+       3   10 common   gpon 0/0 /0  1    1     vlan  untag      -    -    up   
+       4 2589 common   gpon 0/0 /1  0    0     vlan  untag      -    -    up   
+       5   10 common   gpon 0/0 /1  0    1     vlan  untag      -    -    up   
+       6 2589 common   gpon 0/0 /1  1    0     vlan  untag      -    -    up   
+       7   10 common   gpon 0/0 /1  1    1     vlan  untag      -    -    up   
+  -----------------------------------------------------------------------------
+   Total : 8  (Up/Down :    8/0)
+   
+#OBS: Pode-se conseguir o último index livre através do comando:
+OLT-HUAWEI(config)# display service-port next-free-index
+
+============================================================================================================
+
+
+
+
+
+##LISTAR AS ONUs NÃO AUTORIZADAS
+OLT-HUAWEI(config)# interface gpon[chaci/cartão] 
+OLT-HUAWEI(config-if-gpon-0/0)# display ont autofind [porta do cartão]
+
+#Gera esta cabeçalho abaixo, onde Ont  SN é ou o número serial ou o PON(se a ont for wifi)
+   ----------------------------------------------------------------------------
+   Number              : 1
+   F/S/P               : 0/0/0
+   Ont SN              : 48575443D3EDC890 (HWTC-D3EDC890)
+   Password            : 0x00000000000000000000
+   Loid                : 
+   Checkcode           : 
+   VendorID            : HWTC
+   Ont Version         : 867.A
+   Ont SoftwareVersion : V3R015C10S150
+   Ont EquipmentID     : HG8120H
+   Ont Customized Info : -
+   Ont autofind time   : 2018-01-10 01:53:26+08:00
+   ----------------------------------------------------------------------------
+   
+============================================================================================================
+
+
+##PARA ONT'S SEM WIFI##
+
+#AUTORIZAÇÃO DA ONU:
+
+OLT-HUAWEI(config-if-gpon-0/0)# ont confirm [porta do cartão]  sn-auth [ontSN] omci desc [NOME DO CLIENTE]
+
+
+#Cabeçalho:
+
+Command:
+          ont confirm 0 sn-auth 48575443D3EDC890 omci 
+  Number of ONTs that can be added: 1, success: 1
+  PortID :0, ONTID :2   [DECORAR ESTE NUMERO, NÃO ESQUECER]
+  
+============================================================================================================
+
+##ADICIONAR OS SERVIÇOS AS PORTAS DA ONU AUTORIZADA (service-port sequencial, ont autorizada, interface do serviço)
+
+OLT-HUAWEI(config)# service-port [N° service port] vlan 2589 gpon [chaci/cartão/porta] ont [ontID] eth [N° da porta da ont] multi-service user-vlan untagged 
+OLT-HUAWEI(config)# service-port [N° service port] vlan 10 gpon [chaci/cartão/porta] ont [ontID] eth [N° da porta da ont] multi-service user-vlan untagged 
+
+============================================================================================================
+
+##PARA ONT'S WIFI##
+
+!!!OBS: RESPEITAR AS GEMPORTS DE CADA PERFIL, NA DUVIDA: OLT-HUAWEI(config)# display current configuration ... depois verifique no perfil que irá usar as gemports.!!!
+
+OLT-HUAWEI(config)#  interface gpon [chaci/cartão]
+
+OLT-HUAWEI(config-if-gpon-0/0)# display ont autofind [N° da porta do cartão]
+
+OLT-HUAWEI(config-if-gpon-0/0)# ont confirm [porta do cartão] sn-auth [Sn/PON] omci ont-lineprofile-id [N° do profile] ont-srvprofile-id [N° do profile] desc [NOME DO CLIENTE] 
+
+OLT-HUAWEI(config)# service-port [N° service port] vlan [tag da vlan] gpon [chaci/cartão/porta] ont [ontID] gemport [id da gemport] multi-service user-vlan [tag da vlan]
+
+OLT-HUAWEI(config)# interface gpon 0/0 
+
+OLT-HUAWEI(config-if-gpon-0/0)# ont port native-vlan  [N° da porta] [ontID] eth [N° da interface da ont] vlan [tag da vlan que passaŕa na porta]
+ 
+============================================================================================================
+
+
+#TROUBLESHOOTING:
+
+## Lista as service port informando mac da unidade##
+OLT-HUAWEI(config)# display mac-address all
+
+##Lista serice ports, mostrando chaci,cartão, porta tipo de fluxo e estado (up ou down).##
+OLT-HUAWEI(config)# display service-port all 
+
+##Lista todas ont por ID, informa serial/pon e description das ont##
+OLT-HUAWEI(config-if-gpon-0/0)# display ont info [N°PORTA] all
+
+##Detalhamento de porta da ont por cartão, velocidade, estado(link state) e ID das ont's##
+OLT-HUAWEI(config-if-gpon-0/0)# display ont port state [cartão] [ontID]  eth-port all 
+
+##Altera description da ont se por ventura não for configurada no momento da autorização##
+OLT-HUAWEI(config-if-gpon-0/0)# ont modify [N° da porta] [ontID] desc [descrição, tem que ser entre aspas] 
+
+##Remover ONU##
+OLT-HUAWEI(config)# undo service-port [N° da service port]
+OLT-HUAWEI(config)# interface gpon [N° do chaci e cartão]
+OLT-HUAWEI(config-if-gpon-0/0)# ont delete [N° da porta] {ontID]
+
+##Verificar sinais ópticos na ONU##
+OLT-HUAWEI(config-if-gpon-0/0)# display ont optical-info [N° do cartão] [ontID]
+
+##Mostra nome do cliente e acha as service ports que ele esta ativo no index global(service ports)##
+OLT-HUAWEI(config)# display current-configuration ONT [chaci/cartão/porta] [ontID] 
+
+#Mostra nome do cliente e acha o ontID do cliente##
+OLT-HUAWEI(config)# display current-configuration | include [string em caixa alta ou sn, etc, igual ao extreme]
+
+============================================================================================================
+
+#Tutorial da ONU(imagens com configurações importantes)
+
+#Inclusão da Vlan de Link-IP: https://1drv.ms/u/s!AuiBrbc7nQvbizSKtStMIX9AoTqq
+
+#Inclusão de Vlan de Voz(se necessário, apenas condôminos): https://1drv.ms/u/s!AuiBrbc7nQvbizOfjC8O4B8n3Fbi
+
+#Gerência Remota1(desabilitar firewall): https://1drv.ms/u/s!AuiBrbc7nQvbizXacwn24NXIedfN
+#Gerência Remota2(habilitar portas): https://1drv.ms/u/s!AuiBrbc7nQvbizbUyvzLSUB5jj0L
+
+#Habilitar Portas Lan para Serviços L-3: https://1drv.ms/u/s!AuiBrbc7nQvbizKLH3tOO4utlD4T
+
+#Redirecionamento de portas: https://portforward.com/huawei/hg8245/

@@ -1,0 +1,24 @@
+-------------------------------------VPLS MX-----------------------------------------------------------
+JPA
+#INTERFACE PRINCIPAL DEVE TER
+set interfaces ae1 flexible-vlan-tagging
+set interfaces ae1 encapsulation flexible-ethernet-services
+#CRIA A VLAN E ADD A VRF
+set interfaces ae1 unit 996 description VPLS-EDIVALDO-TESTE
+set interfaces ae1 unit 996 encapsulation vlan-vpls
+set interfaces ae1 unit 996 vlan-id 996
+set interfaces ae1 unit 996 family vpls
+set routing-instances VPLS-EDIVALDO-TESTE interface ae1.996
+#CRIA A VRF E ADD OS NEIGHBOR
+set routing-instances VPLS-EDIVALDO-TESTE instance-type vpls
+set routing-instances VPLS-EDIVALDO-TESTE vlan-id 996
+set routing-instances VPLS-EDIVALDO-TESTE interface ae1.996
+set routing-instances VPLS-EDIVALDO-TESTE protocols vpls encapsulation-type ethernet-vlan
+set routing-instances VPLS-EDIVALDO-TESTE protocols vpls no-tunnel-services
+set routing-instances VPLS-EDIVALDO-TESTE protocols vpls vpls-id 996
+set routing-instances VPLS-EDIVALDO-TESTE protocols vpls neighbor 177.75.77.147
+set routing-instances VPLS-EDIVALDO-TESTE protocols vpls neighbor 177.75.74.70
+set routing-instances VPLS-EDIVALDO-TESTE protocols vpls neighbor 187.33.240.166
+set routing-instances VPLS-EDIVALDO-TESTE protocols vpls flow-label-transmit
+set routing-instances VPLS-EDIVALDO-TESTE protocols vpls flow-label-receive
+

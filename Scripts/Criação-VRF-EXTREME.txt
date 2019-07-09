@@ -1,0 +1,37 @@
+########################################################################
+
+VPN-L3
+
+Modelo de criação de VRF:
+
+create vr VPN-L3-<NOME> type vpn-vrf vr Vr-Default
+configure vr VPN-L3-<NOME> add protocol bgp
+configure vr VPN-L3-<NOME> rd 64000:200 # route distinguisher
+configure vr VPN-L3-<NOME> route-target both add 64000:200
+enable vr VPN-L3-<NOME> 
+
+enable bgp export vr VPN-L3-<NOME> direct address-family vpnv4
+enable bgp export vr VPN-L3-<NOME>  bgp address-family vpnv4
+
+virtual-router VPN-L3-<NOME> 
+configure bgp AS-number 64000 # ASN
+configure bgp routerid <IP-do-GW> # ip do SW GW
+enable bgp export direct address-family ipv4-unicast
+enable bgp export remote-vpn address-family ipv4-unicast
+enable bgp
+
+create vlan <NOME-DA-VLAN> vr VPN-L3-<NOME> tag <NUMERO-TAG>
+configure vlan <NOME-DA-VLAN> ipaddress 172.16.0.1/30
+configure vlan <NOME-DA-VLAN>  add ports <PORTA> tagged
+enable ipforwarding vlan <NOME-DA-VLAN> 
+
+# as próximas configurações são realizadas para cada neighbor que será configurado.
+
+vr VPN-L3-<NOME>
+create bgp neighbor <IP-DO-PONTO-REMOTO> remote-AS-number <ASN REMOTO>
+disable bgp neighbor <IP-DO-PONTO-REMOTO>  capability ipv4-multicast
+enable bgp neighbor <IP-DO-PONTO-REMOTO> 
+
+#deletar VR
+
+configure vr "VPN-L3-<NOME>" delete protocol "bgp"

@@ -1,0 +1,49 @@
+CONFIGURAÇÃO BGP - ASR9K - IOSXR
+
+Ip na Interface
+interface TenGigE0/0/0/1.1254
+ description Cust: Veloonet (TRANSITO) {} [5Gbps]
+ ipv4 address 187.33.249.247 255.255.255.254
+ ipv4 address 187.33.249.244 255.255.255.254 secondary
+ ipv6 address 2804:298:200::65/126
+ ipv6 address 2804:298:200::69/126
+ encapsulation dot1q 1254
+!
+
+Prefix Set
+prefix-set PS-VELOONET
+  179.97.32.0/20 ge 20 le 24,
+  186.208.64.0/20 ge 20 le 24,
+  2804:2bf0::/32 ge 32 le 48
+end-set
+!
+
+Route Policy
+route-policy eBGP-DOWNSTREAM-ASN-262740-IN
+  if destination in PS-VELOONET then
+    set local-preference 300
+    set community CLIENTES-CGE
+    set community 3X-PREPEND-LEVEL3-CGE additive
+    set community 1X-PREPEND-FNA-JPA additive
+    done
+  endif
+
+BGP neighbor
+router bgp 53087
+ neighbor 187.33.249.245
+  remote-as 262740
+  description Veloonet
+  address-family ipv4 unicast
+   route-policy eBGP-DOWNSTREAM-ASN-262740-IN in
+   route-policy CLIENTES-FULL-ROUTE out
+   soft-reconfiguration inbound always
+  !
+ !
+!
+
+Ospf na Interface
+router ospf 1
+  area 0.0.0.0
+  interface TenGigE0/0/0/1.1254
+   passive enable
+  !

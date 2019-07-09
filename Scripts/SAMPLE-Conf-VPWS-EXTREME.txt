@@ -1,0 +1,14 @@
+VPWS
+
+create vlan “NOME-VLAN” tag NUMERO
+disable igmp snooping “NOME-VLAN”
+create l2vpn vpws “NOME-VPWS” fec-id-type pseudo-wire <NUMERO> # número utilizado por padrão nosso, é a TAG da VLAN
+configure l2vpn vpws “NOME-VPWS” add service vlan “NOME-VLAN” # add a vlan que fará parte do VPWS
+configure l2vpn vpws “NOME-VPWS” dot1q tag include
+configure l2vpn vpws “NOME-VPWS” add peer “ip loopback” # IP do SW que será o peer, ou seja, IP do outro lado.
+
+
+se o State estiver UP o túnel está ok
+show l2vpn vpws
+
+O VPWS roda em cima do MPLS, então só deve ser configurado nos equipamentos de “última milha”, ou seja, nos últimos SW que atendem cada localidade, sendo taggeada a vlan apenas em uma porta.

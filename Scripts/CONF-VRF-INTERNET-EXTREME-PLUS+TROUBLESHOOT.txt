@@ -1,0 +1,89 @@
+VRF-INTERNET
+
+Criar VLAN P2P, colocar IP, habilitar Forwarding nos 2 SW-L3, taggear nas portas.
+Fechar OSPF, MPLS e BGP entre o SW-L3 que vai ter VRF-INTERNET e o STK-L3-JPA-ST-01 e também STK-L3-CGE-PL-01, sendo que é necessário aplicar a configuração de router-reflector cliente APENAS nos 2 STK, não no SW que vai possuir a VRF-INTERNET.
+
+#SW-L3 
+
+#Ospf
+configure ospf add vlan "NOME-VLAN" area 0.0.0.0 link-type point-to-point 
+# configure ospf vlan "NOME-VLAN" cost 15 # só alterar se necessário
+# configure ospf vlan "NOME-VLAN" priority 2 # só alterar se necessário
+
+#Mpls
+configure mpls add vlan "NOME-VLAN" #nome da vlan
+enable mpls vlan "NOME-VLAN"
+enable mpls ldp vlan "NOME-VLAN"
+# enable mpls protocol ldp # se já estiver ativado, desconsiderar
+
+
+
+#Bgp
+
+enable bgp
+configure bgp AS-number 65000
+create bgp neighbor 10.4.0.4 remote-AS-number 65000
+configure bgp neighbor 10.4.0.4 source-interface ipaddress 10.4.160.2
+
+configure bgp neighbor 10.4.0.4 next-hop-self
+configure bgp neighbor 10.4.0.4 address-family vpnv4 next-hop-self
+enable bgp neighbor 10.4.0.4 capability vpnv4
+enable bgp neighbor 10.4.0.4
+
+#Vrf-Internet
+
+create vr "INTERNET" type vpn-vrf vr "VR-Default" 
+configure vr INTERNET add protocol bgp
+configure vr INTERNET rd 53087:10
+configure vr INTERNET route-target both add 53087:10
+
+enable bgp export vr INTERNET direct address-family vpnv4
+enable bgp export vr INTERNET static address-family vpnv4
+enable bgp export vr INTERNET bgp address-family vpnv4
+virtual-router INTERNET
+
+#Stk-JPA/CGE
+
+create vlan "P2P-SWL3-STK-CBD-01"
+configure vlan P2P-SWL3-STK-CBD-01 tag 3010
+configure vlan P2P-SWL3-STK-CBD-01 add ports 2:1 tagged  
+configure vlan P2P-SWL3-STK-CBD-01 ipaddress 10.4.3.49 255.255.255.252
+enable ipforwarding vlan P2P-SWL3-STK-CBD-01
+
+configure mpls add vlan "P2P-SWL3-STK-CBD-01"
+enable mpls vlan "P2P-SWL3-STK-CBD-01"
+enable mpls ldp vlan "P2P-SWL3-STK-CBD-01"
+
+configure ospf add vlan P2P-SWL3-STK-CBD-01 area 0.0.0.0 link-type point-to-point 
+# configure ospf vlan P2P-SWL3-STK-CBD-01 cost 11
+
+create bgp neighbor 10.4.160.2 remote-AS-number 65000
+configure bgp neighbor 10.4.160.2 route-reflector-client
+configure bgp neighbor 10.4.160.2 source-interface ipaddress 10.4.0.4
+configure bgp neighbor 10.4.160.2 next-hop-self                                                                                                                         
+configure bgp neighbor 10.4.160.2 address-family vpnv4 next-hop-self                                                                                                    
+enable bgp neighbor 10.4.160.2 capability vpnv4
+enable bgp neighbor 10.4.160.2     
+enable iproute mpls-next-hop
+
+########################################################################
+
+T-SHOT VRF-INTERNET
+
+pingar da vrf para algum destino na internet
+ping vr "INTERNET" 8.8.8.8
+
+caso não pingar, verificar se a vrf tem rota default para a internet
+show iproute vr "INTERNET"
+#be  Default Route      187.33.245.149  1    UG-D---um--f- P2P-01-BDR-JPA-01 64d:10h:9m:26s
+
+caso não possua, é possível que esteja recebendo as rotas porém não instala, um restart no processo BGP pode ser a solução, mas é necessário autorização da ENGENHARIA
+restart process bgp
+
+########################################################################
+
+OSPF + MPLS
+
+show mpls ldp peer 10.4.0.4
+ping mpls lsp prefix 10.4.160.2/32
+show ospf neighbor "P2P-SWL3-STK-CBD-01"

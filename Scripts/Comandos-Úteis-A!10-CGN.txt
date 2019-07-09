@@ -1,0 +1,29 @@
+###################
+COMANDOS A-10-CGNAT
+################### 
+
+Acesso: ssh <seuusuário>@10.0.3.2
+Password: <doseuusuário>
+Senha do enable: 1.2.3.4.5.6
+
+#show log | include <argumento>
+-> mostra o log do parametro especifico.
+
+#show cgnv6 fixed-nat statistics
+-> Estaristica total do NAT configurado: endereços em uso, portas, comunicação icmp, sessões, etc.
+
+#show cgnv6 fixed-nat inside-user <ip adquirido pelo cliente> port-mapping
+-> Mostra mapeamento de portas do cliente.
+
+#show cgnv6 fixed-nat nat-address <ip publico> <porta>
+-> Mostra através do ip publico e indicação de porta, qual ip-NAT está usando aquela porta.
+
+#show cgnv6 fixed-nat inside-user <ip adquirido pelo cliente> quota-used
+-> Mostra quantas portas estão sendo usadas, e qual ip publico é o gateway do cliente.
+
+#show ip interface brief
+-> mostra interfaces do A10
+
+Obs: resto dos comandos do sistema é base IOS-CISCO.
+
+#####################################################################################################

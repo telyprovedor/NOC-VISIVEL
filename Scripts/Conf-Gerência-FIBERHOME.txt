@@ -1,0 +1,31 @@
+CONFIGURAÇÃO GERÊNCIA FIBERHOME
+
+acesso via console:
+
+user: GEPON
+pass: GEPON
+user> enable
+pass: GEPON
+
+# cd service
+# set manage vlan name GERENCIA vid <TAG> inputport 19:x tagged
+# set manage vlan name GERENCIA ip <a.b.c.d/x> (IP-P2P) <a.b.c.d> (IP-GW)
+# cd device
+# set uplink port 19:x enable
+
+Executar um comando para que a placa EPON da OLT reconhecesse as ONUs Furukawa e Cianet.
+Primeiro o novo card deve ser autorizado no ANM2000 abrindo o menu "Card config" e depois no "write device", então o seguinte procedimento deverá ser realizado na CLI da OLT.
+cd gponlinecard
+set pon_interconnection_switch slot {NUMERO DO SLOT} switch enable union_interconnect_switch enable
+# cd ..
+# save
+# exit
+
+> show port 19:x (para ver se a porta está UP)
+> ou # show startup-config
+
+setar vlan e ip de gerência na máquina para testar via ping e telnet.
+
+resetar: 
+
+Admin# erase

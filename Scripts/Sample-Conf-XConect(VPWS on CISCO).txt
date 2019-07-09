@@ -1,0 +1,185 @@
+Building configuration...
+
+Current configuration : 3709 bytes
+!
+! Last configuration change at 14:45:33 UTC Thu Jan 25 2018 by sitecnet
+! NVRAM config last updat ed at 22:24:35 UTC Wed Jan 24 2018 by sitecnet
+!
+version 15.0
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname GER-C-5645-NTL-002
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 128000
+enable secret 5 $1$buha$JxHJji3Y3MDqAZyBhTkj71
+!
+no aaa new-model
+!
+no ipv6 cef
+no ip source-route
+ip cef
+!
+!
+!
+!
+multilink bundle-name authenticated
+!
+mpls traffic-eng tunnels
+mpls label protocol ldp
+crypto pki token default removal timeout 0
+!
+!
+license udi pid CISCO1905BR/K9 sn TSP1924ACCK
+license boot module c1900 technology-package datak9
+!
+!
+username sitecnet secret 5 $1$av6x$6M6bLHVo.eVl3SmSrq7eV1
+!
+redundancy
+!
+!
+pseudowire-class ETHERNET
+ encapsulation mpls
+ interworking ethernet
+!
+pseudowire-class UFRN
+ encapsulation mpls
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 172.20.48.1 255.255.255.255
+ ip ospf 1 area 0.0.0.0
+!
+interface Tunnel50
+ description MPLS-TE-UFRN
+ ip unnumbered Loopback0
+ shutdown
+ tunnel mode mpls traffic-eng
+ tunnel destination 172.20.0.2
+ tunnel mpls traffic-eng autoroute announce
+ tunnel mpls traffic-eng priority 1 1
+ tunnel mpls traffic-eng path-option 10 explicit name CIC-NTL-2
+ tunnel mpls traffic-eng record-route
+ tunnel mpls traffic-eng exp 7
+ no routing dynamic
+!
+interface GigabitEthernet0/0
+ mtu 9170
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.2189
+!
+interface GigabitEthernet0/0.2432
+ description GERENCIA
+ encapsulation dot1Q 2432
+ ip address 10.176.66.94 255.255.255.252
+ ip ospf network point-to-point
+ ip ospf 1 area 0.0.0.0
+ mpls traffic-eng tunnels
+ mpls label protocol ldp
+ mpls ip
+ ip rsvp bandwidth 10000000
+!
+interface GigabitEthernet0/1
+ mtu 2000
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.2177
+ encapsulation dot1Q 2177
+ xconnect 177.75.77.147 2177 encapsulation mpls
+!
+interface GigabitEthernet0/1.2189
+ encapsulation dot1Q 2189
+ xconnect 172.20.0.2 2189 encapsulation mpls
+!
+interface GigabitEthernet0/1.2207
+ encapsulation dot1Q 2207
+ xconnect 177.75.77.147 2207 encapsulation mpls
+!
+interface GigabitEthernet0/1.2210
+ encapsulation dot1Q 2210
+ xconnect 177.75.77.147 2210 encapsulation mpls
+!
+interface GigabitEthernet0/1.2211
+ encapsulation dot1Q 2211
+ xconnect 177.75.77.147 2211 encapsulation mpls
+!
+interface GigabitEthernet0/1.2224
+ encapsulation dot1Q 2224
+ xconnect 177.75.77.147 2224 encapsulation mpls
+!
+interface GigabitEthernet0/1.2315
+ encapsulation dot1Q 2315
+ xconnect 187.33.231.161 2315 encapsulation mpls
+!
+interface GigabitEthernet0/1.2475
+ encapsulation dot1Q 2475
+ xconnect 177.75.77.147 2475 encapsulation mpls
+!
+interface GigabitEthernet0/1.2477
+ encapsulation dot1Q 2477
+ xconnect 177.75.77.147 2477 encapsulation mpls
+!
+interface GigabitEthernet0/1.2700
+ encapsulation dot1Q 2700
+ xconnect 177.75.77.147 2700 encapsulation mpls
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+router ospf 1
+ mpls traffic-eng router-id Loopback0
+ mpls traffic-eng area 0.0.0.0
+ router-id 172.20.48.1
+ log-adjacency-changes
+ auto-cost reference-bandwidth 100000
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+ip route 0.0.0.0 0.0.0.0 10.176.66.93
+!
+ip explicit-path name CIC-NTL-2 enable
+ next-address loose 10.176.66.93
+ next-address loose 187.33.240.105
+ next-address loose 187.33.230.242
+ next-address loose 187.33.240.106
+ next-address loose 187.33.227.90
+ next-address loose 177.75.70.198
+!
+!
+!
+!
+!
+!
+mpls ldp router-id Loopback0 force
+!
+control-plane
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ login local
+line vty 5 15
+ login local
+!
+scheduler allocate 20000 1000
+end
+

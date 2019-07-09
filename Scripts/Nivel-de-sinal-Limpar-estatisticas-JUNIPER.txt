@@ -1,0 +1,7 @@
+NÍVEL DE SINAL JUNIPER | LIMPAR ESTATISTICAS
+
+show interfaces diagnostics optics xe-0/2/0 | match dBm | match rx | except hi
+
+show interfaces xe-0/2/0 statistics | match errors
+
+clear interfaces statistics xe-2/0/1

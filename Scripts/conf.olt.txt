@@ -1,0 +1,2153 @@
+zamamba@capetazord:~$ minicom
+minicom: não foi possível abrir /dev/ttyUSB0: Permissão negada
+zamamba@capetazord:~$ sudo minicom
+[sudo] senha para zamamba: 
+
+
+Welcome to minicom 2.7.1
+
+OPÇÕES: I18n 
+Compilado em May  6 2018, 08:02:47.
+Port /dev/ttyUSB0, 17:02:30
+
+Pressione CTRL-A Z para ajuda sobre teclas especiais
+
+
+>>User name:sitecnet
+>>User password:
+  Username or password invalid.
+>>User name:
+  Username timeout expired
+>>User name:
+  Username timeout expired
+                                                                                  
+  Configuration console exit, please press any key to log on                      
+                                                                                  
+>>User name:root                                                                  
+>>User password:                                                                  
+  Username or password invalid.                                                   
+>>User name:root                                                                  
+>>User password:                                                                  
+                                                                                  
+                                                                                  
+  Huawei Integrated Access Software (MA5600T).                                    
+  Copyright(C) Huawei Technologies Co., Ltd. 2002-2017. All rights reserved.      
+                                                                                  
+  -----------------------------------------------------------------------------   
+  User last login information:                                                    
+  -----------------------------------------------------------------------------   
+  Access Type : Serial                                                            
+  IP-Address  : --                                                                
+  Login  Time : 2018-10-15 23:47:37+08:00                                         
+  Logout Time : 2018-10-16 00:15:44+08:00                                         
+  -----------------------------------------------------------------------------   
+  -----------------------------------------------------------------------------   
+  User fail login information:                                                    
+  -----------------------------------------------------------------------------   
+  Last Access Type    : Serial                                                    
+  Last IP-Address     : --                                                        
+  Last Login Time     : 2018-10-16 04:14:27+08:00                                 
+  Login Failure Times : 4                                                         
+  -----------------------------------------------------------------------------   
+  -----------------------------------------------------------------------------   
+  All user fail login information:                                                
+  -----------------------------------------------------------------------------   
+  Access Type IP-Address           Time                          Login Times      
+  -----------------------------------------------------------------------------   
+  Telnet      10.132.66.33         2018-10-15 23:51:37+08:00               5      
+  Serial      --                   2018-10-16 04:14:27+08:00               4      
+  -----------------------------------------------------------------------------   
+                                                                                  
+OLT-HUAWEI-MB>                                                                    
+  Warning: Using the default user password is not recommended. Please change the .
+                                                                                  
+OLT-HUAWEI-MB>enable                                                              
+                                                                                  
+OLT-HUAWEI-MB#config                                                              
+                                                                                  
+OLT-HUAWEI-MB(config)#idle-timeout 255                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#display board 0                                             
+  -------------------------------------------------------------------------       
+  SlotID  BoardName  Status          SubType0 SubType1    Online/Offline          
+  -------------------------------------------------------------------------       
+  0                                                                               
+  1                                                                               
+  2                                                                               
+  3                                                                               
+  4                                                                               
+  5                                                                               
+  6                                                                               
+  7       H801SCUK   Active_normal                                                
+  8                                                                               
+  9       H807GPBH   Auto_find                                                    
+  10      H807GPBH   Auto_find                                                    
+  11      H807GPBH   Auto_find                                                    
+  12                                                                              
+  13                                                                              
+  14                                                                              
+  15                                                                              
+  16                                                                              
+  17      H802X2CS   Normal                                                       
+  18                                                                              
+  19                                                                              
+  20                                                                              
+  -------------------------------------------------------------------------       
+                                                                                  
+OLT-HUAWEI-MB(config)#board confirm 0                                             
+  0 frame 17 slot board has been confirmed                                        
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#vlan 394,1037,1034 smart                                    
+  It will take several minutes, and console may be timeout, please use command  i 
+  Are you sure to add VLANs? (y/n)[n]:y                                           
+  The total of the VLANs having been processed is 3                               
+  The total of the added VLANs is 3                                               
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#display board 0                                             
+  -------------------------------------------------------------------------       
+  SlotID  BoardName  Status          SubType0 SubType1    Online/Offline          
+  -------------------------------------------------------------------------       
+  0                                                                               
+  1                                                                               
+  2                                                                               
+  3                                                                               
+  4                                                                               
+  5                                                                               
+  6                                                                               
+  7       H801SCUK   Active_normal                                                
+  8                                                                               
+  9       H807GPBH   Normal                                                       
+  10      H807GPBH   Normal                                                       
+  11      H807GPBH   Normal                                                       
+  12                                                                              
+  13                                                                              
+  14                                                                              
+  15                                                                              
+  16                                                                              
+  17      H802X2CS   Normal                                                       
+  18                                                                              
+  19                                                                              
+  20                                                                              
+  -------------------------------------------------------------------------       
+                                                                                  
+OLT-HUAWEI-MB(config)#display board 0/7                                           
+                                                                                  
+  ---------------------------------------                                         
+  Board Name          : H801SCUK                                                  
+  Board Status        : Active normal                                             
+  ---------------------------------------                                         
+                                                                                  
+  ------------------------------------------------------------------------------  
+  Power Status      Power-off cause                    Power-off Time             
+  ------------------------------------------------------------------------------  
+  POWER-ON          -                                  -                          
+  ------------------------------------------------------------------------------  
+  ------------------------------------------------------------------------------  
+  Port  Port Optic   Native  MDI    Speed     Duplex    Flow-  Active   Link      
+        Type Status  VLAN           (Mbps)              Ctrl   State              
+  ------------------------------------------------------------------------------  
+     0  GE   absence      1  -      auto      auto      off    active   offline   
+     1  GE   absence      1  -      auto      auto      off    active   offline   
+     2  GE   absence      1  -      auto      auto      off    active   offline   
+     3  GE   absence      1  -      auto      auto      off    active   offline   
+  ------------------------------------------------------------------------------  
+  ------------------------------------------------------------------------------  
+  Port  Detecting Time(Min)  TX State  Resume  Detect    Resume    Auto-sensing   
+                                       Detect  Interval  Duration                 
+  ------------------------------------------------------------------------------  
+     0                    -  -         -       -         -                    -   
+     1                    -  -         -       -         -                    -   
+     2                    -  -         -       -         -                    -   
+     3                    -  -         -       -         -                    -   
+  ------------------------------------------------------------------------------  
+  ------------------------------------------------------------------------------  
+  Port  15Min   15Min    24Hour  24Hour                                           
+        AlmProf WarnProf AlmProf WarnProf                                         
+  ------------------------------------------------------------------------------  
+     0        -        -       -        -                                         
+     1        -        -       -        -                                         
+     2        -        -       -        -                                         
+     3        -        -       -        -                                         
+  ------------------------------------------------------------------------------  
+  Note: For any port, setting MDI to auto-negotiation is invalid, For a 1000 M    
+        Electrical port in the full-duplex mode, setting MDI to any value is      
+        invalid                                                                   
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#display board 0                                             
+  -------------------------------------------------------------------------       
+  SlotID  BoardName  Status          SubType0 SubType1    Online/Offline          
+  -------------------------------------------------------------------------       
+  0                                                                               
+  1                                                                               
+  2                                                                               
+  3                                                                               
+  4                                                                               
+  5                                                                               
+  6                                                                               
+  7       H801SCUK   Active_normal                                                
+  8                                                                               
+  9       H807GPBH   Normal                                                       
+  10      H807GPBH   Normal                                                       
+  11      H807GPBH   Normal                                                       
+  12                                                                              
+  13                                                                              
+  14                                                                              
+  15                                                                              
+  16                                                                              
+  17      H802X2CS   Normal                                                       
+  18                                                                              
+  19                                                                              
+  20                                                                              
+  -------------------------------------------------------------------------       
+                                                                                  
+OLT-HUAWEI-MB(config)#display board 0/17                                          
+                                                                                  
+  ---------------------------------------                                         
+  Board Name          : H802X2CS                                                  
+  Board Status        : Normal                                                    
+  ---------------------------------------                                         
+                                                                                  
+  ------------------------------------------------------------------------------  
+  Power Status      Power-off cause                    Power-off Time             
+  ------------------------------------------------------------------------------  
+  POWER-ON          -                                  -                          
+  ------------------------------------------------------------------------------  
+  ------------------------------------------------------------------------------  
+  Port  Port Optic   Native  MDI    Speed     Duplex    Flow-  Active   Link      
+        Type Status  VLAN           (Mbps)              Ctrl   State              
+  ------------------------------------------------------------------------------  
+     0  10GE absence      1  -      10000     full      off    active   offline   
+     1  10GE absence      1  -      10000     full      off    active   offline   
+  ------------------------------------------------------------------------------  
+  ------------------------------------------------------------------------------  
+  Port  Detecting Time(Min)  TX State  Resume  Detect    Resume    Auto-sensing   
+                                       Detect  Interval  Duration                 
+  ------------------------------------------------------------------------------  
+     0                    -  -         -       -         -                    -   
+     1                    -  -         -       -         -                    -   
+  ------------------------------------------------------------------------------  
+  ------------------------------------------------------------------------------  
+  Port  15Min   15Min    24Hour  24Hour                                           
+        AlmProf WarnProf AlmProf WarnProf                                         
+  ------------------------------------------------------------------------------  
+     0        -        -       -        -                                         
+     1        -        -       -        -                                         
+  ------------------------------------------------------------------------------  
+  Note: For any port, setting MDI to auto-negotiation is invalid, For a 1000 M    
+        Electrical port in the full-duplex mode, setting MDI to any value is      
+        invalid                                                                   
+                                                                                  
+OLT-HUAWEI-MB(config)#port vlan 394,1037,1034 0/17 0                              
+  It will take several minutes, and console may be timeout, please use command  i 
+  Are you sure to add standard port(s)? (y/n)[n]:y                                
+  The total of the VLANs having been processed is 3                               
+  The total of the port VLAN(s) having been added is 3                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#display current-configuration                               
+{ <cr>|ont<K>|port<K>|section<K>|service-port<K>|simple<K>||<K> }:                
+                                                                                  
+  Command:                                                                        
+          display current-configuration                                           
+[Active: H801SCUK; Standby: --]                                                   
+[Patch Info: SPH101]                                                              
+[MA5600V800R018: 5600]                                                            
+#                                                                                 
+[sysmode]                                                                         
+  <sysmode>                                                                       
+ switch adsl mode to rfc2662 vdsl mode to tr129                                   
+ xpon mode switch-to profile-mode                                                 
+ voice-spec set vag-num 8                                                         
+ protocol support h248                                                            
+ system ex-mode backup                                                            
+ system workscene msan                                                            
+ router mode basic                                                                
+#                                                                                 
+[global-config]                                                                   
+  <global-config>                                                                 
+ sysname OLT-HUAWEI-MB                                                            
+ terminal user name buildrun_new_password root *j$1b$u.0$Emq,ME$@2J'.L}#          
+C3mMme2ijY\MpiPX,c-*YPp!VR5<!!w<$* 7 0000:00:00:00:00:00 0000:00:00:00:00:00      
+root 1 first-login-info 0 "-----"                                                 
+ ont-lineprofile gpon profile-id 0 profile-name "line-profile_default_0"          
+  tcont 0 dba-profile-id 2                                                        
+  tcont 1 dba-profile-id 0                                                        
+  commit                                                                          
+  quit                                                                            
+#                                                                                 
+[device-config]                                                                   
+  <device-config>                                                                 
+ board add 0/9 H807GPBH                                                           
+ board add 0/10 H807GPBH                                                          
+ board add 0/11 H807GPBH                                                          
+ board add 0/17 H802X2CS                                                          
+#                                                                                 
+[public-config]                                                                   
+  <public-config>                                                                 
+ monitor uplink-port traffic port 0/17/0                                          
+ monitor uplink-port traffic port 0/17/1                                          
+ snmp-agent local-engineid 000007DB03340A9865A6D194                               
+#                                                                                 
+[vlan-config]                                                                     
+  <vlan-config>                                                                   
+ vlan 394 smart                                                                   
+ vlan 1034 smart                                                                  
+ vlan 1037 smart                                                                  
+ port vlan 394 0/17 0                                                             
+ port vlan 1034 0/17 0                                                            
+ port vlan 1037 0/17 0                                                            
+#                                                                                 
+                                                                                  
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#save                                                        
+{ <cr>|configuration<K>|data<K> }:                                                
+                                                                                  
+  Command:                                                                        
+          save                                                                    
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+  It will take several minutes to save configuration file, please wait...         
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+  Configuration file had been saved successfully                                  
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+  The data is being saved, please wait a moment...                                
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+  1 [2018-10-16 05:27:38+08:00]:The percentage of saved data on 7 slot's control %
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+  1 [2018-10-16 05:27:41+08:00]:The percentage of saved data on 7 slot's control %
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+  1 [2018-10-16 05:27:44+08:00]:The percentage of saved data on 7 slot's control %
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+  1 [2018-10-16 05:27:47+08:00]:The percentage of saved data on 7 slot's control %
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+  1 [2018-10-16 05:27:50+08:00]:The percentage of saved data on 7 slot's control %
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+  1 [2018-10-16 05:27:53+08:00]:The percentage of saved data on 7 slot's control %
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+  1 [2018-10-16 05:27:56+08:00]:The data of 7 slot's control board is saved       
+completely                                                                        
+                                                                                  
+OLT-HUAWEI-MB(config)#system workscene ?                                          
+---------------------------------------------                                     
+  Command of config Mode:                                                         
+---------------------------------------------                                     
+mode<E><olt,msan>     System work scene                                           
+                                                                                  
+OLT-HUAWEI-MB(config)#system workscene olt                                        
+  Note: Please execute save command to save the configuration before the system it
+  Mode switching will result system rebooting.                                    
+  Are you sure?(y/n)[n]:y                                                         
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+ Platform System start ...                                                        
+                                                                                  
+ Memory Data Bus Test .................pass.                                      
+ Memory Address Bus Test ..............pass.                                      
+ Press 'Ctrl+T' To Start Memory Complete Test                                     
+ Trace code : 0x00001111                                                          
+ Copy from ROM to RAM       ...... OK!                                            
+ Uncompress from ROM to RAM ...... OK!                                            
+ Update fpga...OK.                                                                
+                                                                                  
+ Copyright (c) 1998 - 2017 by Huawei Technologies Co.,Ltd.                        
+ All Rights Reserved.                                                             
+                                                                                  
+ The last update date of base BIOS B is : Apr 15 2017 17:30:00                    
+                                                                                  
+ ===============================================================                  
+ BOARD INFORMATION :                                                              
+   CPU: P2010.  Processor #1.(Rev 5.01) running at 1200Mhz                        
+   1024M bytes DDR(ECC), 256M bytes flash installed on board                      
+   Baudrate of serial channel is 9600bps                                          
+   Board's LAN IP address is 10.132.66.34                                         
+   Board's LAN Subnet mask is 255.255.255.252                                     
+   Board's LAN MAC address is 34:0A:98:65:A6:D1                                   
+ ===============================================================                  
+                                                                                  
+ Base BIOS version is 350                                                         
+                                                                                  
+ Save extended BIOS disable start flag...OK!                                      
+                                                                                  
+ Transferring control to the extended BIOS ...OK!                                 
+                                                                                  
+ System Vfs init...OK                                                             
+                                                                                  
+ The last update date of extended BIOS is : Nov 04 2017 18:19:14                  
+                                                                                  
+ System is booting from extended BIOS...                                          
+                                                                                  
+ Extended BIOS version is 350                                                     
+                                                                                  
+ Press <D> key to stop auto-boot    0                                             
+                                                                                  
+ Now system will boot from flash memory.                                          
+                                                                                  
+ Testing Flash memory...OK!                                                       
+                                                                                  
+ Select area information : Program Area A ,Data Area A .                          
+                                                                                  
+ Begin to expand program... OK!                                                   
+                                                                                  
+ Save extended BIOS enable start flag...OK!                                       
+                                                                                  
+ Transferring control to the loaded program...OK!                                 
+                                                                                  
+ Starting system application init......successfully!                              
+                                                                                  
+ Starting system configuration data init...successfully!                          
+                                                                                  
+ System is initializing configuration...finished!                                 
+                                                                                  
+                                                                                  
+  Press any key to get started                                                    
+                                                                                  
+>>User name:root                                                                  
+>>User password:                                                                  
+                                                                                  
+                                                                                  
+  Huawei Integrated Access Software (MA5600T).                                    
+  Copyright(C) Huawei Technologies Co., Ltd. 2002-2017. All rights reserved.      
+                                                                                  
+                                                                                  
+OLT-HUAWEI-MB>                                                                    
+  Warning: Using the default user password is not recommended. Please change the .
+                                                                                  
+OLT-HUAWEI-MB>enable                                                              
+                                                                                  
+OLT-HUAWEI-MB#config                                                              
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#display current-configuration                               
+{ <cr>|ont<K>|port<K>|section<K>|service-port<K>|simple<K>||<K> }:                
+                                                                                  
+  Command:                                                                        
+          display current-configuration                                           
+[Active: H801SCUK; Standby: --]                                                   
+[Patch Info: SPH101]                                                              
+[MA5600V800R018: 5600]                                                            
+#                                                                                 
+[sysmode]                                                                         
+  <sysmode>                                                                       
+ switch adsl mode to rfc2662 vdsl mode to tr129                                   
+ xpon mode switch-to profile-mode                                                 
+ system ex-mode backup                                                            
+ system workscene olt                                                             
+ router mode basic                                                                
+#                                                                                 
+[global-config]                                                                   
+  <global-config>                                                                 
+ sysname OLT-HUAWEI-MB                                                            
+ terminal user name buildrun_new_password root *j$1b$u.0$Emq,ME$@2J'.L}#          
+C3mMme2ijY\MpiPX,c-*YPp!VR5<!!w<$* 7 0000:00:00:00:00:00 0000:00:00:00:00:00      
+root 1 first-login-info 0 "-----"                                                 
+ ont-lineprofile gpon profile-id 0 profile-name "line-profile_default_0"          
+  tcont 0 dba-profile-id 2                                                        
+  tcont 1 dba-profile-id 0                                                        
+  commit                                                                          
+  quit                                                                            
+#                                                                                 
+[device-config]                                                                   
+  <device-config>                                                                 
+ board add 0/9 H807GPBH                                                           
+ board add 0/10 H807GPBH                                                          
+ board add 0/11 H807GPBH                                                          
+ board add 0/17 H802X2CS                                                          
+#                                                                                 
+[public-config]                                                                   
+  <public-config>                                                                 
+ monitor uplink-port traffic port 0/17/0                                          
+ monitor uplink-port traffic port 0/17/1                                          
+ snmp-agent local-engineid 000007DB03340A9865A6D194                               
+#                                                                                 
+[vlan-config]                                                                     
+  <vlan-config>                                                                   
+ vlan 394 smart                                                                   
+ vlan 1034 smart                                                                  
+ vlan 1037 smart                                                                  
+ port vlan 394 0/17 0                                                             
+ port vlan 1034 0/17 0                                                            
+ port vlan 1037 0/17 0                                                            
+#                                                                                 
+[giu]                                                                             
+  <giu-0/17>                                                                      
+interface giu 0/17                                                                
+ auto-neg 0 disable                                                               
+ speed 0 10000                                                                    
+ auto-neg 1 disable                                                               
+ speed 1 10000                                                                    
+#                                                                                 
+[emu-config]                                                                      
+  <emu-config>                                                                    
+ emu add 0 fan 0 1  "H801FCBH"                                                    
+#                                                                                 
+[config]                                                                          
+  <config>                                                                        
+ip route recursive-lookup default-route protocol static                           
+ mpls label start 8192                                                            
+#                                                                                 
+[meth]                                                                            
+  <meth0>                                                                         
+interface meth0                                                                   
+ description GER-OLT-HUAWEI-MB                                                    
+ ip address 10.132.66.34 255.255.255.252                                          
+#                                                                                 
+[null]                                                                            
+  <null0>                                                                         
+interface null0                                                                   
+#                                                                                 
+[aaa]                                                                             
+  <aaa>                                                                           
+aaa                                                                               
+ authentication-scheme "default"                                                  
+ #                                                                                
+ authorization-scheme "default"                                                   
+ #                                                                                
+ accounting-scheme "default"                                                      
+ #                                                                                
+ domain "default"                                                                 
+ #                                                                                
+#                                                                                 
+[post-system]                                                                     
+  <post-system>                                                                   
+ip route-static 0.0.0.0 0.0.0.0 10.132.66.33                                      
+ ssh user root authentication-type password                                       
+#                                                                                 
+return                                                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#                                                            
+                                                                                  
+  Please check whether system data has been changed, and save data in time        
+                                                                                  
+  Configuration console time out, please press any key to log on                  
+                                                                                  
+>>User name:root                                                                  
+>>User password:                                                                  
+                                                                                  
+                                                                                  
+  Huawei Integrated Access Software (MA5600T).                                    
+  Copyright(C) Huawei Technologies Co., Ltd. 2002-2017. All rights reserved.      
+                                                                                  
+  -----------------------------------------------------------------------------   
+  User last login information:                                                    
+  -----------------------------------------------------------------------------   
+  Access Type : Serial                                                            
+  IP-Address  : --                                                                
+  Login  Time : 2018-10-16 05:34:13+08:00                                         
+  Logout Time : 2018-10-16 05:39:49+08:00                                         
+  -----------------------------------------------------------------------------   
+                                                                                  
+OLT-HUAWEI-MB>                                                                    
+  Warning: Using the default user password is not recommended. Please change the .
+                                                                                  
+OLT-HUAWEI-MB>enable                                                              
+                                                                                  
+OLT-HUAWEI-MB#config                                                              
+                                                                                  
+OLT-HUAWEI-MB(config)#idle-timeout 255                                            
+                                                                                  
+OLT-HUAWEI-MB(config)#ont-srvprofile gpon profile-id ?                            
+---------------------------------------------                                     
+  Command of config Mode:                                                         
+---------------------------------------------                                     
+profile-id<U><0,8192> ONT service profile ID                                      
+                                                                                  
+OLT-HUAWEI-MB(config)#ont-srvprofile gpon profile-id 394 profile-name SRV-VLAN394 
+                                                                                  
+OLT-HUAWEI-MB(config-gpon-srvprofile-394)#ont-port eth adaptive pots adaptive cat?
+---------------------------------------------                                     
+  Command of (config-gpon-srvprofile-394)# Mode:                                  
+---------------------------------------------                                     
+<cr>                  Please press ENTER to execute command                       
+max-catv-port<U><1,8> Number of CATV ports                                        
+moca                  MOCA port                                                   
+tdm                   TDM port                                                    
+tdm-srvtype           TDM service type                                            
+tdm-type              TDM type                                                    
+vdsl                  VDSL port                                                   
+wifi                  WiFi port                                                   
+                                                                                  
+OLT-HUAWEI-MB(config-gpon-srvprofile-394)#ont-port eth adaptive pots adaptive cat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?
+---------------------------------------------
+  Command of (config-gpon-srvprofile-394)# Mode:
+---------------------------------------------
+<cr>                  Please press ENTER to execute command 
+max-catv-port<U><1,8> Number of CATV ports
+moca                  MOCA port
+tdm                   TDM port
+tdm-srvtype           TDM service type
+tdm-type              TDM type
+vdsl                  VDSL port
+wifi                  WiFi port
+
+OLT-HUAWEI-MB(config-gpon-srvprofile-394)#ont-port eth adaptive pots adaptive catv adaptive 
+{ <cr>|max-catv-port<U><1,8>|moca<K>|tdm-srvtype<K>|tdm-type<K>|tdm<K>|vdsl<K>|wifi<K> }:
+
+  Command:
+          ont-port eth adaptive pots adaptive catv adaptive                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-394)#port vlan eth 1-4 394                                
+{ <cr>|priority<K>|prival<U><0,7>|TLS<K> }:                                                    
+                                                                                               
+  Command:                                                                                     
+          port vlan eth 1-4 394                                                                
+  Set ONT port(s) VLAN configuration, success: 4, failed: 0                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-394)#commit                                               
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-394)#quit                                                 
+                                                                                               
+OLT-HUAWEI-MB(config)#ont-srvprofile gpon profile-id 1037 profile-name SRV-VLAN1037            
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1037)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1037)#ont-port eth adaptive pots adaptive catv adaptive   
+{ <cr>|max-catv-port<U><1,8>|moca<K>|tdm-srvtype<K>|tdm-type<K>|tdm<K>|vdsl<K>|wifi<K> }:      
+                                                                                               
+  Command:                                                                                     
+          ont-port eth adaptive pots adaptive catv adaptive                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1037)#port vlan eth 1-4 1037                              
+{ <cr>|priority<K>|prival<U><0,7>|TLS<K> }:                                                    
+                                                                                               
+  Command:                                                                                     
+          port vlan eth 1-4 1037                                                               
+  Set ONT port(s) VLAN configuration, success: 4, failed: 0                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1037)#commit                                              
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1037)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1037)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1037)#quit                                                
+                                                                                               
+OLT-HUAWEI-MB(config)#ont-srvprofile gpon profile-id 1034 profile-name SRV-LAN1034             
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#ont-port eth adaptive pots adaptive catv adaptive   
+{ <cr>|max-catv-port<U><1,8>|moca<K>|tdm-srvtype<K>|tdm-type<K>|tdm<K>|vdsl<K>|wifi<K> }:      
+                                                                                               
+  Command:                                                                                     
+          ont-port eth adaptive pots adaptive catv adaptive                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#port vlan eth 1-4 1034                              
+{ <cr>|priority<K>|prival<U><0,7>|TLS<K> }:                                                    
+                                                                                               
+  Command:                                                                                     
+          port vlan eth 1-4 1034                                                               
+  Set ONT port(s) VLAN configuration, success: 4, failed: 0                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#commit                                              
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-srvprofile-1034)#quit                                                
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#dba-profile add profile-id 10 type4 max 1024000                          
+{ <cr>|priority<K>|weight<K> }:                                                                
+                                                                                               
+  Command:                                                                                     
+          dba-profile add profile-id 10 type4 max 1024000                                      
+  Adding a DBA profile succeeded                                                               
+  Profile ID  : 10                                                                             
+  Profile name: dba-profile_10                                                                 
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#ont-lineprofile gpon profile-id 394 profile-name LINE-VLAN394            
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-394)#tcont 5 dba-profile-id 10                           
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-394)#gem add 5 eth tcont 5                               
+{ <cr>|cascade<K>|downstream-priority-queue<K>|encrypt<K>|gem-car<K>|priority-queue<K> }:      
+                                                                                               
+  Command:                                                                                     
+          gem add 5 eth tcont 5                                                                
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-394)#gem mapping 5 0 vlan 394                            
+{ <cr>|flow-car<K>|priority<K>|transparent<K> }:                                               
+                                                                                               
+  Command:                                                                                     
+          gem mapping 5 0 vlan 394                                                             
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-394)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-394)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-394)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-394)#commit                                              
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-394)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-394)#                                                    
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-394)#quit                                                
+                                                                                               
+OLT-HUAWEI-MB(config)#ont-lineprofile gpon profile-id 1037 profile-name LNE-VLAN1037           
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#quit                                               
+                                                                                               
+OLT-HUAWEI-MB(config)#undo ont-lineprofile gpon profile-id 1037  -                             
+                                           ^                                                   
+  % Ambiguous command, the error locates at '^'                                         on    7
+                                                                                               
+OLT-HUAWEI-MB(config)#ont-lineprofile gpon profile-id 1037 profile-name LNE-VLAN1037           
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#ont-lineprofile gpon profile-id 1037 profile-name LINE-VLAN1037          
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#tcont 5 dba-profile-id 10                          
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#gem add 5 eth tcont 5                              
+{ <cr>|cascade<K>|downstream-priority-queue<K>|encrypt<K>|gem-car<K>|priority-queue<K> }:      
+                                                                                               
+  Command:                                                                                     
+          gem add 5 eth tcont 5                                                                
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#gem mapping 5 0 vlan 1037                          
+{ <cr>|flow-car<K>|priority<K>|transparent<K> }:                                               
+                                                                                               
+  Command:                                                                                     
+          gem mapping 5 0 vlan 1037                                                            
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#commit                                             
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1037)#quit                                               
+                                                                                               
+OLT-HUAWEI-MB(config)#ont-lineprofile gpon profile-id 1034 profile-name LINE-VLAN1034          
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#tcont 5 dba-profile-id 10                          
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#gem add 5 eth tcont 5                              
+{ <cr>|cascade<K>|downstream-priority-queue<K>|encrypt<K>|gem-car<K>|priority-queue<K> }:      
+                                                                                               
+  Command:                                                                                     
+          gem add 5 eth tcont 5                                                                
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#gem mapping 5 0 vlan 1034                          
+{ <cr>|flow-car<K>|priority<K>|transparent<K> }:                                               
+                                                                                               
+  Command:                                                                                     
+          gem mapping 5 0 vlan 1034                                                            
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#commit                                             
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#                                                   
+                                                                                               
+OLT-HUAWEI-MB(config-gpon-lineprofile-1034)#quit                                               
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#display current-configuration                                            
+{ <cr>|ont<K>|port<K>|section<K>|service-port<K>|simple<K>||<K> }:                             
+                                                                                               
+  Command:                                                                                     
+          display current-configuration                                                        
+[Active: H801SCUK; Standby: --]                                                                
+[Patch Info: SPH101]                                                                           
+[MA5600V800R018: 5600]                                                                         
+#                                                                                              
+[sysmode]                                                                                      
+  <sysmode>                                                                                    
+ switch adsl mode to rfc2662 vdsl mode to tr129                                                
+ xpon mode switch-to profile-mode                                                              
+ system ex-mode backup                                                                         
+ system workscene olt                                                                          
+ router mode basic                                                                             
+#                                                                                              
+[global-config]                                                                                
+  <global-config>                                                                              
+ sysname OLT-HUAWEI-MB                                                                         
+ terminal user name buildrun_new_password root *j$1b$u.0$Emq,ME$@2J'.L}#                       
+C3mMme2ijY\MpiPX,c-*YPp!VR5<!!w<$* 7 0000:00:00:00:00:00 0000:00:00:00:00:00                   
+root 1 first-login-info 0 "-----"                                                              
+ dba-profile add profile-id 10 profile-name "dba-profile_10" type4 max 1024000                 
+ ont-srvprofile gpon profile-id 394 profile-name "SRV-VLAN394"                                 
+  ont-port pots adaptive 32 eth adaptive 8 catv adaptive 8                                     
+  port vlan eth 1 translation 394 user-vlan 394                                                
+  port vlan eth 2 translation 394 user-vlan 394                                                
+  port vlan eth 3 translation 394 user-vlan 394                                                
+  port vlan eth 4 translation 394 user-vlan 394                                                
+  commit                                                                                       
+ ont-srvprofile gpon profile-id 1034 profile-name "SRV-LAN1034"                                
+  ont-port pots adaptive 32 eth adaptive 8 catv adaptive 8                                     
+  port vlan eth 1 translation 1034 user-vlan 1034                                              
+  port vlan eth 2 translation 1034 user-vlan 1034                                              
+  port vlan eth 3 translation 1034 user-vlan 1034                                              
+  port vlan eth 4 translation 1034 user-vlan 1034                                              
+  commit                                                                                       
+ ont-srvprofile gpon profile-id 1037 profile-name "SRV-VLAN1037"                               
+  ont-port pots adaptive 32 eth adaptive 8 catv adaptive 8                                     
+  port vlan eth 1 translation 1037 user-vlan 1037                                              
+  port vlan eth 2 translation 1037 user-vlan 1037                                              
+  port vlan eth 3 translation 1037 user-vlan 1037                                              
+  port vlan eth 4 translation 1037 user-vlan 1037                                              
+  commit                                                                                       
+ ont-lineprofile gpon profile-id 0 profile-name "line-profile_default_0"                       
+  tcont 0 dba-profile-id 2                                                                     
+  tcont 1 dba-profile-id 0                                                                     
+  commit                                                                                       
+  quit                                                                                         
+ ont-lineprofile gpon profile-id 394 profile-name "LINE-VLAN394"                               
+  tcont 5 dba-profile-id 10                                                                    
+                                                                                               
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#display board                                                            
+{ desc<K>|frameid/slotid<S><Length 3-15>|frameid<U><0,32>|serial-number<K>|workmode<K> }:0     
+                                                                                               
+  Command:                                                                                     
+          display board 0                                                                      
+  -------------------------------------------------------------------------                    
+  SlotID  BoardName  Status          SubType0 SubType1    Online/Offline                       
+  -------------------------------------------------------------------------                    
+  0                                                                                            
+  1                                                                                            
+  2                                                                                            
+  3                                                                                            
+  4                                                                                            
+  5                                                                                            
+  6                                                                                            
+  7       H801SCUK   Active_normal                                                             
+  8                                                                                            
+  9       H807GPBH   Normal                                                                    
+  10      H807GPBH   Normal                                                                    
+  11      H807GPBH   Normal                                                                    
+  12                                                                                           
+  13                                                                                           
+  14                                                                                           
+  15                                                                                           
+  16                                                                                           
+  17      H802X2CS   Normal                                                                    
+  18                                                                                           
+  19                                                                                           
+                                                                                               
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#interface gpon 0/9                                                       
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 0 ont-auto-find enable                                  
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 0 ont-auto-find enable                                  
+  Failure: Make configuration repeatedly                                                       
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 1 ont-auto-find enable                                  
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 2 ont-auto-find enable                                  
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 3 ont-auto-find enable                                  
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 4 ont-auto-find enable                                  
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 5 ont-auto-find enable                                  
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 6 ont-auto-find enable                                  
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 7 ont-auto-find enable                                  
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 8ont-auto-findenable                                    
+                                       ^                                                       
+  % Parameter error, the error locates at '^'                                                  
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#port 9ont-auto-findenable                                    
+                                       ^                                                       
+  % Parameter error, the error locates at '^'                                                  
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#                                                             
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#                                                             
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#                                                             
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#                                                             
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/9)#quit                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#interface gpon 0/10                                                      
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/10)#port 0 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/10)#port 1 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/10)#port 2 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/10)#port 3 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/10)#port 4 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/10)#port 5 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/10)#port 6 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/10)#port 7 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/10)#                                                            
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/10)#quit                                                        
+                                                                                               
+OLT-HUAWEI-MB(config)#interface gpon 0/11                                                      
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/11)#port 0 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/11)#port 1 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/11)#port 2 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/11)#port 3 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/11)#port 4 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/11)#port 5 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/11)#port 6 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/11)#port 7 ont-auto-find enable                                 
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/11)#                                                            
+                                                                                               
+OLT-HUAWEI-MB(config-if-gpon-0/11)#quit                                                        
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#display current-configuration                                            
+{ <cr>|ont<K>|port<K>|section<K>|service-port<K>|simple<K>||<K> }:                             
+                                                                                               
+  Command:                                                                                     
+          display current-configuration                                                        
+[Active: H801SCUK; Standby: --]                                                                
+[Patch Info: SPH101]                                                                           
+[MA5600V800R018: 5600]                                                                         
+#                                                                                              
+[sysmode]                                                                                      
+  <sysmode>                                                                                    
+ switch adsl mode to rfc2662 vdsl mode to tr129                                                
+ xpon mode switch-to profile-mode                                                              
+ system ex-mode backup                                                                         
+ system workscene olt                                                                          
+ router mode basic                                                                             
+#                                                                                              
+[global-config]                                                                                
+  <global-config>                                                                              
+ sysname OLT-HUAWEI-MB                                                                         
+ terminal user name buildrun_new_password root *j$1b$u.0$Emq,ME$@2J'.L}#                       
+C3mMme2ijY\MpiPX,c-*YPp!VR5<!!w<$* 7 0000:00:00:00:00:00 0000:00:00:00:00:00                   
+root 1 first-login-info 0 "-----"                                                              
+ dba-profile add profile-id 10 profile-name "dba-profile_10" type4 max 1024000                 
+ ont-srvprofile gpon profile-id 394 profile-name "SRV-VLAN394"                                 
+  ont-port pots adaptive 32 eth adaptive 8 catv adaptive 8                                     
+  port vlan eth 1 translation 394 user-vlan 394                                                
+  port vlan eth 2 translation 394 user-vlan 394                                                
+---- More ( Press 'Q' to break ) ----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                       CTRL-A Z for help | 9600 8N1 | NOR | Minicom 2.7.1 | VT102 | Desconectado | ttyUSB0                                                                              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  port vlan eth 3 translation 394 user-vlan 394
+  port vlan eth 4 translation 394 user-vlan 394
+  commit
+ ont-srvprofile gpon profile-id 1034 profile-name "SRV-LAN1034"
+  ont-port pots adaptive 32 eth adaptive 8 catv adaptive 8 
+  port vlan eth 1 translation 1034 user-vlan 1034
+  port vlan eth 2 translation 1034 user-vlan 1034
+  port vlan eth 3 translation 1034 user-vlan 1034
+  port vlan eth 4 translation 1034 user-vlan 1034
+  commit
+ ont-srvprofile gpon profile-id 1037 profile-name "SRV-VLAN1037"
+  ont-port pots adaptive 32 eth adaptive 8 catv adaptive 8 
+  port vlan eth 1 translation 1037 user-vlan 1037
+  port vlan eth 2 translation 1037 user-vlan 1037
+  port vlan eth 3 translation 1037 user-vlan 1037
+  port vlan eth 4 translation 1037 user-vlan 1037
+  commit
+ ont-lineprofile gpon profile-id 0 profile-name "line-profile_default_0"                       
+  tcont 0 dba-profile-id 2                                                                     
+  tcont 1 dba-profile-id 0                                                                     
+  commit                                                                                       
+  quit                                                                                         
+ ont-lineprofile gpon profile-id 394 profile-name "LINE-VLAN394"                               
+  tcont 5 dba-profile-id 10                                                                    
+  gem add 5 eth tcont 5                                                                        
+  gem mapping 5 0 vlan 394                                                                     
+  commit                                                                                       
+  quit                                                                                         
+ ont-lineprofile gpon profile-id 1034 profile-name "LINE-VLAN1034"                             
+  tcont 5 dba-profile-id 10                                                                    
+  gem add 5 eth tcont 5                                                                        
+  gem mapping 5 0 vlan 1034                                                                    
+  commit                                                                                       
+  quit                                                                                         
+ ont-lineprofile gpon profile-id 1037 profile-name "LINE-VLAN1037"                             
+  tcont 5 dba-profile-id 10                                                                    
+  gem add 5 eth tcont 5                                                                        
+  gem mapping 5 0 vlan 1037                                                                    
+  commit                                                                                       
+  quit                                                                                         
+#                                                                                              
+[device-config]                                                                                
+  <device-config>                                                                              
+ board add 0/9 H807GPBH                                                                        
+ board add 0/10 H807GPBH                                                                       
+ board add 0/11 H807GPBH                                                                       
+ board add 0/17 H802X2CS                                                                       
+#                                                                                              
+[public-config]                                                                                
+  <public-config>                                                                              
+ monitor uplink-port traffic port 0/17/0                                                       
+ monitor uplink-port traffic port 0/17/1                                                       
+ snmp-agent local-engineid 000007DB03340A9865A6D194                                            
+#                                                                                              
+[vlan-config]                                                                                  
+  <vlan-config>                                                                                
+ vlan 394 smart                                                                                
+ vlan 1034 smart                                                                               
+ vlan 1037 smart                                                                               
+ port vlan 394 0/17 0                                                                          
+ port vlan 1034 0/17 0                                                                         
+ port vlan 1037 0/17 0                                                                         
+#                                                                                              
+[gpon]                                                                                         
+  <gpon-0/9>                                                                                   
+ interface gpon 0/9                                                                            
+ port 0 ont-auto-find enable                                                                   
+ port 1 ont-auto-find enable                                                                   
+ port 2 ont-auto-find enable                                                                   
+ port 3 ont-auto-find enable                                                                   
+ port 4 ont-auto-find enable                                                                   
+ port 5 ont-auto-find enable                                                                   
+ port 6 ont-auto-find enable                                                                   
+ port 7 ont-auto-find enable                                                                   
+#                                                                                              
+  <gpon-0/10>                                                                                  
+ interface gpon 0/10                                                                           
+ port 0 ont-auto-find enable                                                                   
+ port 1 ont-auto-find enable                                                                   
+ port 2 ont-auto-find enable                                                                   
+ port 3 ont-auto-find enable                                                                   
+ port 4 ont-auto-find enable                                                                   
+ port 5 ont-auto-find enable                                                                   
+ port 6 ont-auto-find enable                                                                   
+ port 7 ont-auto-find enable                                                                   
+#                                                                                              
+  <gpon-0/11>                                                                                  
+ interface gpon 0/11                                                                           
+ port 0 ont-auto-find enable                                                                   
+ port 1 ont-auto-find enable                                                                   
+ port 2 ont-auto-find enable                                                                   
+ port 3 ont-auto-find enable                                                                   
+ port 4 ont-auto-find enable                                                                   
+ port 5 ont-auto-find enable                                                                   
+ port 6 ont-auto-find enable                                                                   
+ port 7 ont-auto-find enable                                                                   
+#                                                                                              
+[giu]                                                                                          
+  <giu-0/17>                                                                                   
+interface giu 0/17                                                                             
+ auto-neg 0 disable                                                                            
+ speed 0 10000                                                                                 
+ auto-neg 1 disable                                                                            
+ speed 1 10000                                                                                 
+#                                                                                              
+[emu-config]                                                                                   
+  <emu-config>                                                                                 
+ emu add 0 fan 0 1  "H801FCBH"                                                                 
+#                                                                                              
+[config]                                                                                       
+  <config>                                                                                     
+ip route recursive-lookup default-route protocol static                                        
+ mpls label start 8192                                                                         
+#                                                                                              
+[meth]                                                                                         
+  <meth0>                                                                                      
+interface meth0                                                                                
+ description GER-OLT-HUAWEI-MB                                                                 
+ ip address 10.132.66.34 255.255.255.252                                                       
+#                                                                                              
+[null]                                                                                         
+  <null0>                                                                                      
+interface null0                                                                                
+#                                                                                              
+[aaa]                                                                                          
+  <aaa>                                                                                        
+aaa                                                                                            
+ authentication-scheme "default"                                                               
+ #                                                                                             
+ authorization-scheme "default"                                                                
+ #                                                                                             
+ accounting-scheme "default"                                                                   
+ #                                                                                             
+ domain "default"                                                                              
+ #                                                                                             
+#                                                                                              
+[post-system]                                                                                  
+  <post-system>                                                                                
+ip route-static 0.0.0.0 0.0.0.0 10.132.66.33                                                   
+ ssh user root authentication-type password                                                    
+#                                                                                              
+return                                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#save                                                                     
+{ <cr>|configuration<K>|data<K> }:                                                             
+                                                                                               
+  Command:                                                                                     
+          save                                                                                 
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+  It will take several minutes to save configuration file, please wait...                      
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+  Configuration file had been saved successfully                                               
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+  The data is being saved, please wait a moment...                                             
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+  1 [2018-10-16 06:08:36+08:00]:The percentage of saved data on 7 slot's control board is: 66% 
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+  1 [2018-10-16 06:08:39+08:00]:The percentage of saved data on 7 slot's control board is: 72% 
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+  1 [2018-10-16 06:08:42+08:00]:The percentage of saved data on 7 slot's control board is: 78% 
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+  1 [2018-10-16 06:08:45+08:00]:The percentage of saved data on 7 slot's control board is: 84% 
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+  1 [2018-10-16 06:08:48+08:00]:The percentage of saved data on 7 slot's control board is: 90% 
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+  1 [2018-10-16 06:08:51+08:00]:The percentage of saved data on 7 slot's control board is: 96% 
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+  1 [2018-10-16 06:08:53+08:00]:The data of 7 slot's control board is saved                    
+completely                                                                                     
+                                                                                               
+OLT-HUAWEI-MB(config)#undo system snmp-user ?                                                  
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+password              Password                                                                 
+                                                                                               
+OLT-HUAWEI-MB(config)#undo system snmp-user password security                                  
+  Warning: Does not recommend to disable complexity check. A simple community                  
+name may result in security threats                                                            
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent sys-info version v2c                                          
+{ <cr>|v1<K>|v3<K> }:                                                                          
+                                                                                               
+  Command:                                                                                     
+          snmp-agent sys-info version v2c                                                      
+  Warning: SNMPv1/SNMPv2c is not secure, and it is recommended to use SNMPv3(                  
+authentication-mode and privacy-mode)                                                          
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent community read public                                         
+{ <cr>|mib-view<K> }:                                                                          
+                                                                                               
+  Command:                                                                                     
+          snmp-agent community read public                                                     
+  Warning: The password is too simple. It is recommended to set the password                   
+with no less than 8 characters containing at least one letter and one digit                    
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent                                 community write private       
+{ <cr>|mib-view<K> }:                                                                          
+                                                                                               
+  Command:                                                                                     
+          snmp-agent                                 community write private                   
+  Warning: The password is too simple. It is recommended to set the password                   
+with no less than 8 characters containing at least one letter and one digit                    
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-?                                                                   
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+snmp-agent            <Group> snmp-agent command group                                         
+snmp-profile          <Group>SNMP profile command group                                        
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent trap ?                                                        
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+enable                <Group> enable command group                                             
+source                Set the source address of trap packet                                    
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent trap enable standard                                          
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent trap-format ?                                                 
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+format<E><standard,private>                                                                    
+                      Trap format <standard, private>                                          
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent trap-format standard                                          
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent ?                                                             
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+<cr>                  Please press ENTER to execute command                                    
+acl                   ACL rule                                                                 
+community             Set a community for the access of SNMPv1&SNMPv2c                         
+group                 Set an SNMP group based on USM                                           
+ifindex-format        Set ifIndex format                                                       
+invalid-value         Set function whether the host returns a standard invalid                t
+local-engineid        Set the engineID of local SNMP entity                                    
+mib-view              Set SNMP MIB view information                                            
+syntax                Set SNMP syntax mode                                                     
+sys-info              Set system information of the node                                       
+target-host           Set the target hosts to receive SNMP notification/trap                   
+                      packets                                                                  
+trap                  <Group> trap command group                                               
+trap-format           Set trap format                                                          
+usm-user              Set a new user for access to SNMP entity                                 
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host ?                                                 
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+trap-filterprofilename                                                                         
+                      Filter profile name                                                      
+trap-hostname         The name of target host                                                  
+trap-paramsname       The parameter name of target host                                        
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-hostname ?                                   
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+hostname<S><Length 1-32>                                                                       
+                      The string of host name                                                  
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-hostname TEL-SRV-03 address 172.31.7.10 ?    
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+trap-paramsname       The parameter name of target host                                        
+udp-port              Set port to receive traps/notifications for this target                  
+                      host                                                                     
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-hostname TEL-SRV-03 address 172.31.7.10 udp-?
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+udp-portid<U><1,65535>                                                                         
+                      The port number of target host                                           
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-hostname TEL-SRV-03 address 172.31.7.10 ?   -
+          ^                                                                                    
+  % Unknown command, the error locates at '^'                                                  
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-hostname TEL-SRV-03 address 172.31.7.10 p-po?
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+udp-portid<U><1,65535>                                                                         
+                      The port number of target host                                           
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-hostname TEL-SRV-03 address 172.31.7.10 ort  
+{ udp-portid<U><1,65535> }:ewrsvgewqrgvewqrf                                                   
+                                                                                               
+  Command:                                                                                     
+          snmp-agent target-host trap-hostname TEL-SRV-03 address 172.31.7.10 udp-port ewrsvgef
+       ^                                                                                       
+  % Parameter error, the error locates at '^'                                                  
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-hostname TEL-SRV-03 address ?                
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+ip-addr<I><X.X.X.X>   IP address of target host                                                
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-hostname TEL-SRV-03 address 172.31.7.10 ?    
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+trap-paramsname       The parameter name of target host                                        
+udp-port              Set port to receive traps/notifications for this target                  
+                      host                                                                     
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-hostname TEL-SRV-03 address 172.31.7.10 trap 
+{ paramsname<S><Length 1-32> }:NMS                                                             
+                                                                                               
+  Command:                                                                                     
+          snmp-agent target-host trap-hostname TEL-SRV-03 address 172.31.7.10 trap-paramsname S
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent ?                                                             
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+<cr>                  Please press ENTER to execute command                                    
+acl                   ACL rule                                                                 
+community             Set a community for the access of SNMPv1&SNMPv2c                         
+group                 Set an SNMP group based on USM                                           
+ifindex-format        Set ifIndex format                                                       
+invalid-value         Set function whether the host returns a standard invalid                t
+local-engineid        Set the engineID of local SNMP entity                                    
+mib-view              Set SNMP MIB view information                                            
+syntax                Set SNMP syntax mode                                                     
+sys-info              Set system information of the node                                       
+target-host           Set the target hosts to receive SNMP notification/trap                   
+                      packets                                                                  
+trap                  <Group> trap command group                                               
+trap-format           Set trap format                                                          
+usm-user              Set a new user for access to SNMP entity                                 
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host ?                                                 
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+trap-filterprofilename                                                                         
+                      Filter profile name                                                      
+trap-hostname         The name of target host                                                  
+trap-paramsname       The parameter name of target host                                        
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-paramsname ?                                 
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+paramsname<S><Length 1-32>                                                                     
+                      Specify the character string of security name                            
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-paramsname NMS ?                             
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+v1                    Specify security model of SNMPv1 to generate SNMP messages               
+v2c                   Specify security model of SNMPv2c to generate SNMP                       
+                      messages                                                                 
+v3                    Specify security model of SNMPv3 to generate SNMP messages               
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-paramsname NMS v2c ?                         
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+securityname          Specify the name for the principal on whose behalf SNMP                  
+                      messages will be generated                                               
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-paramsname NMS v2c ?                         
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+securityname          Specify the name for the principal on whose behalf SNMP                  
+                      messages will be generated                                               
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-paramsname NMS v2c securityname ?            
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+securityname<S><Length 1-32,50,68>                                                             
+                      Specify the character string of security name                            
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-paramsname NMS v2c securityname NMS ?        
+---------------------------------------------                                                  
+  Command of config Mode:                                                                      
+---------------------------------------------                                                  
+<cr>                  Please press ENTER to execute command                                    
+trap-filterprofilename                                                                         
+                      Filter profile name                                                      
+                                                                                               
+OLT-HUAWEI-MB(config)#snmp-agent target-host trap-paramsname NMS v2c securityname NMS          
+{ <cr>|trap-filterprofilename<K> }:                                                            
+                                                                                               
+  Command:                                                                                     
+          snmp-agent target-host trap-paramsname NMS v2c securityname NMS                      
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#                                                                         
+                                                                                               
+OLT-HUAWEI-MB(config)#display current-configuration                                            
+{ <cr>|ont<K>|port<K>|section<K>|service-port<K>|simple<K>||<K> }:                             
+                                                                                               
+  Command:                                                                                     
+          display current-configuration                                                        
+[Active: H801SCUK; Standby: --]                                                                
+[Patch Info: SPH101]                                                                           
+[MA5600V800R018: 5600]                                                                         
+#                                                                                              
+[sysmode]                                                                                      
+  <sysmode>                                                                                    
+ switch adsl mode to rfc2662 vdsl mode to tr129                                                
+ xpon mode switch-to profile-mode                                                              
+ system ex-mode backup                                                                         
+ system workscene olt                                                                          
+ router mode basic                                                                             
+#                                                                                              
+[global-config]                                                                                
+  <global-config>                                                                              
+ sysname OLT-HUAWEI-MB                                                                         
+ undo system snmp-user password security                                                       
+ terminal user name buildrun_new_password root *j$1b$u.0$Emq,ME$@2J'.L}#                       
+C3mMme2ijY\MpiPX,c-*YPp!VR5<!!w<$* 7 0000:00:00:00:00:00 0000:00:00:00:00:00                   
+root 1 first-login-info 0 "-----"                                                              
+ dba-profile add profile-id 10 profile-name "dba-profile_10" type4 max 1024000                 
+ ont-srvprofile gpon profile-id 394 profile-name "SRV-VLAN394"                                 
+  ont-port pots adaptive 32 eth adaptive 8 catv adaptive 8                                     
+  port vlan eth 1 translation 394 user-vlan 394                                                
+---- More ( Press 'Q' to break ) ----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  port vlan eth 2 translation 394 user-vlan 394
+  port vlan eth 3 translation 394 user-vlan 394
+  port vlan eth 4 translation 394 user-vlan 394
+  commit
+ ont-srvprofile gpon profile-id 1034 profile-name "SRV-LAN1034"
+  ont-port pots adaptive 32 eth adaptive 8 catv adaptive 8 
+  port vlan eth 1 translation 1034 user-vlan 1034
+  port vlan eth 2 translation 1034 user-vlan 1034
+  port vlan eth 3 translation 1034 user-vlan 1034
+  port vlan eth 4 translation 1034 user-vlan 1034
+  commit
+ ont-srvprofile gpon profile-id 1037 profile-name "SRV-VLAN1037"
+  ont-port pots adaptive 32 eth adaptive 8 catv adaptive 8 
+  port vlan eth 1 translation 1037 user-vlan 1037
+  port vlan eth 2 translation 1037 user-vlan 1037
+  port vlan eth 3 translation 1037 user-vlan 1037
+  port vlan eth 4 translation 1037 user-vlan 1037
+  commit
+ ont-lineprofile gpon profile-id 0 profile-name "line-profile_default_0"
+  tcont 0 dba-profile-id 2
+  tcont 1 dba-profile-id 0
+  commit
+  quit
+ ont-lineprofile gpon profile-id 394 profile-name "LINE-VLAN394"
+  tcont 5 dba-profile-id 10
+  gem add 5 eth tcont 5              
+  gem mapping 5 0 vlan 394
+  commit
+  quit
+ ont-lineprofile gpon profile-id 1034 profile-name "LINE-VLAN1034"
+  tcont 5 dba-profile-id 10
+  gem add 5 eth tcont 5
+  gem mapping 5 0 vlan 1034
+  commit
+  quit
+ ont-lineprofile gpon profile-id 1037 profile-name "LINE-VLAN1037"
+  tcont 5 dba-profile-id 10
+  gem add 5 eth tcont 5
+  gem mapping 5 0 vlan 1037
+  commit
+  quit
+#
+[device-config]
+  <device-config>
+ board add 0/9 H807GPBH 
+ board add 0/10 H807GPBH 
+ board add 0/11 H807GPBH 
+ board add 0/17 H802X2CS 
+#
+[public-config]                      
+  <public-config>
+ monitor uplink-port traffic port 0/17/0
+ monitor uplink-port traffic port 0/17/1
+ snmp-agent local-engineid 000007DB03340A9865A6D194
+ snmp-agent community read %#%#XM(+,:~'=>ax$G9[99d0S+e4Fck0:6>GT-G=wn&%MxHm,z3##AGPMm3/^q4.%#%# 
+ snmp-agent community write %#%#g|4O>i7d#%BVv!/iIU)FWDYr,B&M"M~jS[,9W\f:10pV'Q+@C9FVDz7h>c|Y%#%# 
+ snmp-agent sys-info version v2c
+ snmp-agent target-host trap-hostname TEL-SRV-03 address 172.31.7.10 udp-port 
+162 trap-paramsname NMS
+ snmp-agent target-host trap-paramsname NMS v2C securityname %#%#HK_y'4X<tVko}
+Z7Lk(}&2FPB(Fk<$H$qm@>x*kjL<C/8~;"]HJ&@FYBv<<W)%#%# 
+ snmp-agent trap enable standard
+ snmp-agent trap-format standard
+#
+[vlan-config]
+  <vlan-config>
+ vlan 394 smart
+ vlan 1034 smart
+ vlan 1037 smart
+ port vlan 394 0/17 0
+ port vlan 1034 0/17 0
+ port vlan 1037 0/17 0               
+#
+[gpon]
+  <gpon-0/9>
+ interface gpon 0/9
+ port 0 ont-auto-find enable
+ port 1 ont-auto-find enable
+ port 2 ont-auto-find enable
+ port 3 ont-auto-find enable
+ port 4 ont-auto-find enable
+ port 5 ont-auto-find enable
+ port 6 ont-auto-find enable
+ port 7 ont-auto-find enable
+#
+  <gpon-0/10>
+ interface gpon 0/10
+ port 0 ont-auto-find enable
+ port 1 ont-auto-find enable
+ port 2 ont-auto-find enable
+ port 3 ont-auto-find enable
+ port 4 ont-auto-find enable
+ port 5 ont-auto-find enable
+ port 6 ont-auto-find enable
+ port 7 ont-auto-find enable
+#                                    
+  <gpon-0/11>
+ interface gpon 0/11
+ port 0 ont-auto-find enable
+ port 1 ont-auto-find enable
+ port 2 ont-auto-find enable
+ port 3 ont-auto-find enable
+ port 4 ont-auto-find enable
+ port 5 ont-auto-find enable
+ port 6 ont-auto-find enable
+ port 7 ont-auto-find enable
+#
+[giu]
+  <giu-0/17>
+interface giu 0/17
+ auto-neg 0 disable
+ speed 0 10000
+ auto-neg 1 disable
+ speed 1 10000
+#
+[emu-config]
+  <emu-config>
+ emu add 0 fan 0 1  "H801FCBH"
+#
+[config]                             
+  <config>
+ip route recursive-lookup default-route protocol static
+ mpls label start 8192
+#
+[meth]
+  <meth0>
+interface meth0
+ description GER-OLT-HUAWEI-MB
+ ip address 10.132.66.34 255.255.255.252
+#
+[null]
+  <null0>
+interface null0
+#
+[aaa]
+  <aaa>
+aaa 
+ authentication-scheme "default"
+ #
+ authorization-scheme "default"
+ #
+ accounting-scheme "default"
+ #
+ domain "default"                    
+ #                                   
+#                                    
+[post-system]
+  <post-system>
+ip route-static 0.0.0.0 0.0.0.0 10.132.66.33
+ ssh user root authentication-type password
+#
+return
+
+OLT-HUAWEI-MB(config)# 
+
+OLT-HUAWEI-MB(config)#
+
+OLT-HUAWEI-MB(config)#
+
+OLT-HUAWEI-MB(config)#save
+{ <cr>|configuration<K>|data<K> }:
+
+  Command:
+          save 
+
+OLT-HUAWEI-MB(config)#
+  It will take several minutes to save configuration file, please wait...  
+
+OLT-HUAWEI-MB(config)#
+  Configuration file had been saved successfully
+
+OLT-HUAWEI-MB(config)#
+  The data is being saved, please wait a moment...
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 06:58:11+08:00]:The percentage of saved data on 7 slot's control board is: 66%
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 06:58:14+08:00]:The percentage of saved data on 7 slot's control board is: 72%
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 06:58:18+08:00]:The percentage of saved data on 7 slot's control board is: 78%
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 06:58:20+08:00]:The percentage of saved data on 7 slot's control board is: 84%
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 06:58:24+08:00]:The percentage of saved data on 7 slot's control board is: 90%
+
+OLT-HUAWEI-MB(config)#
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 06:58:26+08:00]:The data of 7 slot's control board is saved 
+completely
+
+OLT-HUAWEI-MB(config)#terminal user ?
+---------------------------------------------
+  Command of config Mode:
+---------------------------------------------
+authentication-mode   Authentication Mode
+logon-mode            User logon mode
+---------------------------------------------
+  Command of privilege Mode:
+---------------------------------------------
+apdinfo               User's appended information
+level                 User's level
+name                  User's name
+password              User's password
+reenter               User's reenter number
+user-profile          User profile
+
+OLT-HUAWEI-MB(config)#terminal user name
+  User Name(length<6,15>):sitecnet
+  User Password(length<6,15>):
+  Confirm Password(length<6,15>):
+  User profile name(<=15 chars)[root]:
+  User's Level:
+     1. Common User  2. Operator  3. Administrator:3
+  Permitted Reenter Number(0--20):1
+  User's Appended Info(<=30 chars):
+  Adding user successfully
+  Repeat this operation? (y/n)[n]:n
+
+OLT-HUAWEI-MB(config)#
+
+OLT-HUAWEI-MB(config)#
+
+OLT-HUAWEI-MB(config)#
+
+OLT-HUAWEI-MB(config)#
+
+OLT-HUAWEI-MB(config)#
+
+OLT-HUAWEI-MB(config)#save
+{ <cr>|configuration<K>|data<K> }:
+
+  Command:
+          save 
+
+OLT-HUAWEI-MB(config)#
+  It will take several minutes to save configuration file, please wait...  
+
+OLT-HUAWEI-MB(config)#
+  Configuration file had been saved successfully
+
+OLT-HUAWEI-MB(config)#
+  The data is being saved, please wait a moment...
+
+OLT-HUAWEI-MB(config)#
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 07:26:53+08:00]:The percentage of saved data on 7 slot's control board is: 66%
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 07:26:56+08:00]:The percentage of saved data on 7 slot's control board is: 72%
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 07:26:59+08:00]:The percentage of saved data on 7 slot's control board is: 78%
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 07:27:02+08:00]:The percentage of saved data on 7 slot's control board is: 84%
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 07:27:05+08:00]:The percentage of saved data on 7 slot's control board is: 90%
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 07:27:08+08:00]:The percentage of saved data on 7 slot's control board is: 96%
+
+OLT-HUAWEI-MB(config)#
+
+OLT-HUAWEI-MB(config)#
+  1 [2018-10-16 07:27:08+08:00]:The data of 7 slot's control board is saved 
+completely
+
+OLT-HUAWEI-MB(config)#
+
+  Please check whether system data has been changed, and save data in time
+
+  Configuration console time out, please press any key to log on
+
+>>User name:
+  Username timeout expired
+>>User name:
+  Username timeout expired
+>>User name:

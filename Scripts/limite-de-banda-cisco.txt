@@ -1,0 +1,31 @@
+########################################################################
+
+LIMITE DE BANDA CISCO 1905
+
+class-map match-any CM-LIMITE-DE-BANDA
+ match access-group name ACL-LIMITE-BANDA
+
+policy-map POLICY-200M
+ class CM-LIMITE-DE-BANDA
+   police cir 220088000
+ 	conform-action transmit
+ 	exceed-action drop
+ 	violate-action drop
+
+ip access-list extended ACL-LIMITE-BANDA
+permit ip any any
+
+interface GigabitEthernet0/1
+service-policy output POLICY-200M
+
+========================================================================
+
+
+1800
+
+interface FastEthernet0/1
+ ip vrf forwarding VRF-CLIENTE
+ ip address 187.33.225.93 255.255.255.252
+ rate-limit input 11968000 1000000 1000000 conform-action continue exceed-action drop
+ rate-limit output 11968000 1000000 1000000 conform-action continue exceed-action drop
+

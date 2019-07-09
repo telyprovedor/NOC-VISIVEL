@@ -1,0 +1,55 @@
+INTERFACE ETHER - 2 192.168.1.132 / 177.75.69.82
+INTERFACE ETHER - 10.4.3.126
+
+
+
+
+
+STK:
+
+create vlan "PRTG-TELY"
+configure vlan PRTG-TELY description "P2P-PRTG" 
+configure vlan PRTG-TELY tag 433
+configure vlan PRTG-TELY add ports 1:4,1:23 tagged  
+
+ST-01
+
+create vlan "PRTG-TELY"
+configure vlan PRTG-TELY description "P2P-PRTG" 
+configure vlan PRTG-TELY tag 433
+configure vlan PRTG-TELY add ports 51 tagged  
+
+create vlan "PRTG-PRIVADO"
+configure vlan PRTG-PRIVADO description "REDE-PRIVADA-PRTG" 
+configure vlan PRTG-PRIVADO tag 442
+configure vlan PRTG-PRIVADO ipaddress 10.4.3.125 255.255.255.252
+enable ipforwarding vlan PRTG-PRIVADO
+
+
+ASR-920-JPA-
+
+interface BDI433
+ description Cust: PRTG-TELY
+ ip address 177.75.69.81 255.255.255.252
+ shutdown
+
+interface tenGigabitEthernet 0/0/4
+    service instance 433 ethernet
+     encapsulation dot1q 433
+     rewrite ingress tag pop 1 symmetric
+     bridge-domain 433
+
+
+
+ =========================================================
+
+
+OLD
+create vlan "GER-PRTG"
+configure vlan GER-PRTG tag 433
+create vlan "INT-PRTG"
+configure vlan INT-PRTG tag 14
+configure vlan GER-PRTG add ports 11 tagged  
+configure vlan INT-PRTG add ports 11,51 tagged  
+configure vlan GER-PRTG ipaddress 10.4.3.125 255.255.255.252
+enable ipforwarding vlan GER-PRTG

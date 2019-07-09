@@ -1,0 +1,19 @@
+BGP - MK
+
+Interfaces > Vlans
+ger
+vpn
+
+Ip > Address
+p2p/mask (vlan vpn)
+gw-redes/mask (bridge)
+
+Ip > Routes
+vrf
+static
+
+Routing > BGP
+Instances
+Peers
+Networks #anunciar o próprio bloco, envia para os neighbors
+
